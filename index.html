@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Planner</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" 
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
-    crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="./style.css"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="./reset.css" />    
+    <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
-    <header>  
-        <h1>Plan Your Trip!</h1> 
+    <header>
+        <h1></h1>
     </header>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Plan Your Trip</h1>
+        </div>
+    </div>
+
     <main>
-        <div class = "container">
-            <form> 
-                <label for="destination-field"</label><b>Search for Airport :</b></label>
-                <input type="text" id = "destination-field" placeholder="Enter the destination"></textarea><br/>
-                <button type="submit" value="submit"><i class = "saveStorage"></i>Search</button><br/>
-    </form>
-           
+        <div class="airport-container">
+            <form>
+                <label for="destination-field"><b>Search for Airport :</b></label>
+                <input type="text" id="destination-field" placeholder="Enter the destination"></textarea><br />
+                <button type="submit" value="submit"><i class="saveStorage"></i>Search</button><br />
+            </form>
         </div>
 
-        <div class = "container-2">
-            <form> 
-                <label for="hotel-field"><b>Search for Hotel :</b></label>          
-                  <input type="text" id="hotel-field" placeholder="search for hotel"></textarea><br/>
-            <button type= "submit" value="submit"><i class = "saveStorage"></i>Search</button>
+        <div class="hotel-container">
+            <form>
+                <label for="hotel-field"><b>Search for Hotel :</b></label>
+                <input type="text" id="hotel-field" placeholder="Search for hotel"></textarea><br />
+                <button type="submit" value="submit"><i class="saveStorage"></i>Search</button>
             </form>
-
         </div>
 
     </main>
-    <script src = "./script.js"></script>
+    <script src="./script.js"></script>
 </body>
+
 </html>

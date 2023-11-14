@@ -5,24 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Planner</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
-        </script>
-    <link rel="stylesheet" href="./reset.css" />    
-    <link rel="stylesheet" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+    crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="./style.css"/>
 </head>
 
 <body>
-    <header>
-        <h1></h1>
-    </header>
+    <h1>Plan Your Trip!</h1>
+    <div class = "container">
+      <div class = "input-field">
+        <h3>Enter a City Name</h3>
+        <input class="city-input" type="text" placeholder="Search Nearby Airports">
+        <button class="search-btn">Search</button>
+        </div>
 
-    <div class="hero-image">
-        <div class="hero-text">
-            <h1>Plan Your Trip</h1>
+        <div class="separator"></div>
+
+        <div>
+        <h3>Enter a City Name</h3>
+        <input class="city-input" type="text" placeholder="Search Nearby Hotels">
+        <button class="search-btn">Search</button>
         </div>
     </div>
-
+  
     <main>
         <div >
             <form class="airport-container">
@@ -32,16 +39,32 @@
             </form>
         </div>
 
-        <div class="hotel-container">
-            <form>
-                <label for="hotel-field"><b>Search for Hotel :</b></label>
-                <input type="text" id="hotel-field" placeholder="Search for hotel"></textarea><br />
-                <button type="submit" value="submit"><i class="saveStorage"></i>Search</button>
-            </form>
-        </div>
+    <div class="results">
+        <h2>Airport Results</h2>
+        <ul class="air-results">
+            <li class="card">
+                <h3>(11-13-2023)</h3>
+                <img src="placeholder" alt="airport-pic">
+                <h4>Location:</h4>
+                <h4>Address:</h4>
+            </li>
+        </ul>
+    </div>
 
-    </main>
+    <div class="results">
+        <h2>Hotel Results</h2>
+        <ul class="hotel-results">
+             <li class="card">
+                <h3>(11-13-2023)</h3>
+                <img src="placeholder" alt="hotel-pic">
+                <h4>Location:</h4>
+                <h4>Address:</h4>
+            </li>
+        </ul>
+    </div>
+
     <script src="./script.js"></script>
 </body>
+
 
 </html>

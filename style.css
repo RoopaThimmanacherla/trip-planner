@@ -1,28 +1,28 @@
 :root {
-  --primaryColor: #0c686b;
-  --secondaryColor: #2ac9ce;
-  --tertiaryColor: #df6f19;
-  --buttonColor: #686d70;
-  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  --roundedCorners: 15px;
+    --primaryColor: #0c686b;
+    --secondaryColor: #2ac9ce;
+    --tertiaryColor: #df6f19;
+    --buttonColor: #686d70;
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    --roundedCorners: 15px;
 }
 
 body {
-  font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  margin: 2%;
-  background-color: var(--primaryColor);
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    background-color: var(--primaryColor)
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1%;
-  background-color: var(--primaryColor);
-  color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: var(--primaryColor);
+    color: white;
 }
 
 body,
@@ -103,3 +103,4 @@ button {
 button:hover {
   cursor: pointer;
 }
+

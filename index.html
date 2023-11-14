@@ -8,8 +8,10 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
         </script>
-    <link rel="stylesheet" href="./reset.css" />    
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./reset.css" />     
+    <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
@@ -17,26 +19,26 @@
         <h1></h1>
     </header>
 
-    <div class="hero-image">
-        <div class="hero-text">
+    <div id="hero-image">
+        <div id="hero-text">
             <h1>Plan Your Trip</h1>
         </div>
     </div>
 
     <main>
-        <div class="airport-container">
+        <div id="airport-container" class="airport-container">
             <form>
                 <label for="destination-field"><b>Search for Airport :</b></label>
-                <input type="text" id="destination-field" placeholder="Enter the destination"></textarea><br />
-                <button type="submit" value="submit"><i class="saveStorage"></i>Search</button><br />
+                <input class="input" type="text" id="destination-field" placeholder="Enter the destination"></textarea><br />
+                <button class="button is-responsive is-light" type="submit" value="submit"><i class="saveStorage"></i>Search</button><br />
             </form>
         </div>
 
-        <div class="hotel-container">
+        <div id="hotel-container" class="hotel-container">
             <form>
                 <label for="hotel-field"><b>Search for Hotel :</b></label>
-                <input type="text" id="hotel-field" placeholder="Search for hotel"></textarea><br />
-                <button type="submit" value="submit"><i class="saveStorage"></i>Search</button>
+                <input class="input" type="text" id="hotel-field" placeholder="Enter the destination"></textarea><br />
+                <button class="button is-responsive is-light" type="submit" value="submit"><i class="saveStorage"></i>Search</button>
             </form>
         </div>
 

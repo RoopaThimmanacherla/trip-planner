@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Planner</title>
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
         </script>
-    <link rel="stylesheet" href="./reset.css" />     
-    <link rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-<link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-    <header>
-        <h1></h1>
-    </header>
 
     <div id="hero-image">
         <div id="hero-text">
@@ -25,25 +22,48 @@
         </div>
     </div>
 
-    <main>
-        <div id="airport-container" class="airport-container">
-            <form>
-                <label for="destination-field"><b>Search for Airport :</b></label>
-                <input class="input" type="text" id="destination-field" placeholder="Enter the destination"></textarea><br />
-                <button class="button is-responsive is-light" type="submit" value="submit"><i class="saveStorage"></i>Search</button><br />
-            </form>
-        </div>
+    <div id="airport-container">
+        <form class="airport-container">
+            <h3>Search Nearby Airports</h3>
+            <input class="input city-input" type="text" placeholder="Enter a city name">
+            <button class="search-btn button is-responsive is-light">Search</button>
+        </form>
+    </div>
 
-        <div id="hotel-container" class="hotel-container">
-            <form>
-                <label for="hotel-field"><b>Search for Hotel :</b></label>
-                <input class="input" type="text" id="hotel-field" placeholder="Enter the destination"></textarea><br />
-                <button class="button is-responsive is-light" type="submit" value="submit"><i class="saveStorage"></i>Search</button>
-            </form>
-        </div>
+    <div id="hotel-container">
+        <form class="hotel-container">
+            <h3>Search Nearby Hotels</h3>
+            <input class="input city-input" id="destination-field" type="text" placeholder="Enter a city name">
+            <button class="search-btn button is-responsive is-light">Search</button>
+        </form>
+    </div>
+<!--
+    <div class="results box">
+        <h2>Airport Results</h2>
+        <ul class="air-results">
+            <li class="card">
+                <h3>(11-13-2023)</h3>
+                <img src="placeholder" alt="airport-pic">
+                <h4>Location:</h4>
+                <h4>Address:</h4>
+            </li>
+        </ul>
+    </div>
 
-    </main>
+    <div class="results box">
+        <h2>Hotel Results</h2>
+        <ul class="hotel-results">
+            <li class="card">
+                <h3>(11-13-2023)</h3>
+                <img src="placeholder" alt="hotel-pic">
+                <h4>Location:</h4>
+                <h4>Address:</h4>
+            </li>
+        </ul>
+    </div>
+-->
     <script src="./script.js"></script>
 </body>
+
 
 </html>

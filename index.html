@@ -5,38 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Planner</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" 
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
-    crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="./style.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="./reset.css" />     
+    <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-    <h1>Plan Your Trip!</h1>
-    <div class = "container">
-      <div class = "input-field">
-        <h3>Enter a City Name</h3>
-        <input class="city-input" type="text" placeholder="Search Nearby Airports">
-        <button class="search-btn">Search</button>
-        </div>
 
-        <div class="separator"></div>
-
-        <div>
-        <h3>Enter a City Name</h3>
-        <input class="city-input" type="text" placeholder="Search Nearby Hotels">
-        <button class="search-btn">Search</button>
+      <div id="hero-image">
+        <div id="hero-text">
+            <h1>Plan Your Trip</h1>
         </div>
+     </div>
+
+    <div id = "airport-container">
+      <form class = "airport-container">
+        <h3>Enter a City Name</h3>
+        <input class="input city-input" type="text" placeholder="Search Nearby Airports">
+        <button class="search-btn button is-responsive is-light">Search</button>
+      </form>
     </div>
-  
-    <main>
-        <div >
-            <form class="airport-container">
-                <label for="destination-field"><b>Search for Airport :</b></label>
-                <input type="text" id="destination-field" placeholder="Enter the destination"></textarea><br />
-                <button id="Search-airport"type="submit" value="submit">Search</button><br />
-            </form>
+
+        <div id = "hotel-container>
+          <form class = "hotel-container">
+            <h3>Enter a City Name</h3>
+            <input class="input city-input" id="destination-field" type="text" placeholder="Search Nearby Hotels">
+            <button class="search-btn button is-responsive is-light">Search</button>
+          </form>
         </div>
 
     <div class="results">

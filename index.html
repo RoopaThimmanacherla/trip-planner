@@ -9,10 +9,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
         </script>
-    <link rel="stylesheet" href="./reset.css" />     
-    <link rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-<link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
@@ -23,23 +22,25 @@
         </div>
      </div>
 
-    <div id = "airport-container">
-      <form class = "airport-container">
-        <h3>Enter a City Name</h3>
-        <input class="input city-input" type="text" placeholder="Search Nearby Airports">
-        <button class="search-btn button is-responsive is-light">Search</button>
-      </form>
+    <div id="airport-container">
+        <form class="airport-container">
+            <h3>Search Nearby Airports</h3>
+            <input class="input city-input" id="destination-field" type="text" placeholder="Enter a city name">
+            <button class="search-btn button is-responsive is-light">Search</button>
+        </form>
     </div>
 
-        <div id = "hotel-container">
-          <form class = "hotel-container">
-            <h3>Enter a City Name</h3>
-            <input class="input city-input" id="destination-field" type="text" placeholder="Search Nearby Hotels">
+    <div id="hotel-container">
+        <form class="hotel-container">
+            <h3>Search Nearby Hotels</h3>
+            <input class="input city-input" id="destination-field" type="text" placeholder="Enter a city name">
             <button class="search-btn button is-responsive is-light">Search</button>
-          </form>
-        </div>
+        </form>
+    </div>
+  
+<!--
+    <div class="results box">
 
-    <div class="results">
         <h2>Airport Results</h2>
         <ul class="air-results">
             <li class="card">
@@ -51,10 +52,10 @@
         </ul>
     </div>
 
-    <div class="results">
+    <div class="results box">
         <h2>Hotel Results</h2>
         <ul class="hotel-results">
-             <li class="card">
+            <li class="card">
                 <h3>(11-13-2023)</h3>
                 <img src="placeholder" alt="hotel-pic">
                 <h4>Location:</h4>
@@ -62,9 +63,8 @@
             </li>
         </ul>
     </div>
-
+-->
     <script src="./script.js"></script>
 </body>
-
 
 </html>

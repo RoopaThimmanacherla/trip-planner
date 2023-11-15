@@ -1,4 +1,4 @@
-var searchAirportEl = document.getElementById("airport-container");
+var searchAirportEl = document.getElementById(".airport-container");
 var airportUrl;
 
 function checkAirports(event) {

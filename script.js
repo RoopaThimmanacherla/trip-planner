@@ -1,8 +1,8 @@
-var searchAirportEl = document.getElementById(".airport-container");
+var searchAirportEl = document.querySelector(".airport-container");
 var airportUrl;
 
 function checkAirports(event) {
-  console.log("welcome");
+  event.preventDefault();
   var destination = document.getElementById("destination-field").value;
   console.log(destination);
   if (!destination) {
@@ -19,11 +19,11 @@ function checkAirports(event) {
       if (!response.ok) {
         throw response.json();
       }
-      response.json();
-      console.log(response);
+      return response.json();
     })
     .then(function (airport) {
       console.log(airport);
     });
 }
+console.log(searchAirportEl);
 searchAirportEl.addEventListener("submit", checkAirports);

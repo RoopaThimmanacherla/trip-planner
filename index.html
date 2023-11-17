@@ -5,35 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Planner</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./reset.css" />     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
 
-      <div id="hero-image">
-        <div id="hero-text">
-            <h1>Plan Your Trip</h1>
-        </div>
-     </div>
+    <div id="hero-image">
+      <div id="hero-text">
+        <h1>Plan Your Trip</h1>
+      </div>
+    </div>
 
     <div id = "airport-container">
       <form class = "airport-container">
-        <h3>Enter a City Name</h3>
-        <input class="input city-input" type="text" placeholder="Search Nearby Airports">
+        <h3>Search Nearby Airports</h3>
+        <input class="input city-input" type="text" placeholder="Enter City Name">
         <button class="search-btn button is-responsive is-light">Search</button>
       </form>
     </div>
 
-        <div id = "hotel-container">
-          <form class = "hotel-container">
-            <h3>Enter a City Name</h3>
-            <input class="input city-input" id="destination-field" type="text" placeholder="Search Nearby Hotels">
-            <button class="search-btn button is-responsive is-light">Search</button>
-          </form>
-        </div>
+    <div id = "hotel-container">
+      <form class = "hotel-container">
+        <h3>Search Nearby Hotels</h3>
+        <input class="input city-input" id="destination-field" type="text" placeholder="Enter City Name">
+        <button class="search-btn button is-responsive is-light">Search</button>
+      </form>
+    </div>
+
+    <div class="datepicker">
+      <p>Date: <input type="text" id="datepicker"></p>
+    </div>
         <!--
     <div class="results">
         <h2>Airport Results</h2>

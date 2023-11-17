@@ -27,3 +27,7 @@ function checkAirports(event) {
 }
 console.log(searchAirportEl);
 searchAirportEl.addEventListener("submit", checkAirports);
+
+$( function() {
+  $( "#datepicker" ).datepicker();
+} );

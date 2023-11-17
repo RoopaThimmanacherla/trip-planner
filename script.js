@@ -28,6 +28,7 @@ function checkAirports(event) {
 console.log(searchAirportEl);
 searchAirportEl.addEventListener("submit", checkAirports);
 
+
 $( function() {
   var dateFormat = "mm/dd/yy",
     from = $( "#from" )

@@ -4,7 +4,7 @@
     --tertiaryColor: #df6f19;
     --buttonColor: #686d70;
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    --roundedCorners: 15px;
+    --roundedCorners: 7px;
 }
 
 /*Bulma, creates even spacing around all block elements*/
@@ -38,7 +38,7 @@ html {
 #hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
         url("./images/airplane-sunset.jpg");
-    height: 500px;
+    height: 50vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,6 +58,8 @@ html {
 
 #input-boxes {
     display: flex;
+    justify-content: center;
+    align-items: start;
 }
 
 #checklist-container {
@@ -65,7 +67,7 @@ html {
     flex-direction: column;
     margin: 1%;
     padding: 2%;
-    width: 45vw;
+    width: 45%;
 }
 
 #search-boxes {
@@ -73,7 +75,7 @@ html {
     flex-direction: column;
     margin: 1%;
     padding: 2%;
-    width: 40vw;
+    width: 40%;
 }
 
 #airport-container {
@@ -98,6 +100,15 @@ html {
     background-color: var(--secondaryColor);
     padding: 2%;
     border-radius: var(--roundedCorners);
+}
+
+.button {
+    margin: 2%;
+}
+
+.input {
+    margin: 1%;
+    padding: 2%;
 }
 
 /* Style the close button */

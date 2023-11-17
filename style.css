@@ -38,7 +38,7 @@ html {
 #hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
         url("./images/airplane-sunset.jpg");
-    height: 50%;
+    height: 500px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -56,10 +56,13 @@ html {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+#input-boxes {
+    display: flex;
+}
 
 
 #airport-container {
-    margin: 60px auto;
+    margin: 1%;
     text-align: center;
     font-size: 36px;
     box-shadow: var(--shadow);
@@ -72,7 +75,7 @@ html {
 }
 
 #hotel-container {
-    margin: 60px auto;
+    margin: 1%;
     text-align: center;
     font-size: 36px;
     box-shadow: var(--shadow);

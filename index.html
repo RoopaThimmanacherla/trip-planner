@@ -16,29 +16,54 @@
 
 <body>
 
-      <div id="hero-image">
+    <div id="hero-image">
         <div id="hero-text">
             <h1>Plan Your Trip</h1>
         </div>
-     </div>
-
-    <div id="airport-container">
-        <form class="airport-container">
-            <h3>Search Nearby Airports</h3>
-            <input class="input city-input" id="destination-field" type="text" placeholder="Enter a city name">
-            <button class="search-btn button is-responsive is-light">Search</button>
-        </form>
     </div>
 
-    <div id="hotel-container">
-        <form class="hotel-container">
-            <h3>Search Nearby Hotels</h3>
-            <input class="input city-input" id="destination-field" type="text" placeholder="Enter a city name">
-            <button class="search-btn button is-responsive is-light">Search</button>
-        </form>
+    <div id="input-boxes">
+        <div id="checklist-container">
+            <div id="add-item" class="box">
+                <h2><b>Travel Checklist:</b></h2>
+                <input class="input" type="text" id="checklist-input" placeholder="add task">
+                <span onclick="newElement()" class="addBtn button is-responsive is-light">Add</span>
+            </div>
+
+            <ul id="checklist-items" class="box">
+                <li><label class="checkbox"><input type="checkbox"> Book flight</label></li>
+                <li><label class="checkbox"><input type="checkbox"> Book hotel</label></li>
+                <li><label class="checkbox"><input type="checkbox"> Rent car</label></li>
+                <li><label class="checkbox"><input type="checkbox"> Pack suitcase</label></li>
+                <li><label class="checkbox"><input type="checkbox"> Check in for flight</label></li>
+            </ul>
+
+        </div>
+
+        <div id="search-boxes">
+            <div id="airport-container">
+                <form class="airport-container">
+                    <h3>Search Nearby Airports</h3>
+                    <input class="input city-input" id="destination-airport" type="text"
+                        placeholder="Enter a city name">
+                    <button class="search-btn button is-responsive is-light">Search</button>
+                </form>
+            </div>
+
+            <div id="hotel-container">
+                <form class="hotel-container">
+                    <h3>Search Nearby Hotels</h3>
+                    <input class="input city-input" id="destination-hotel" type="text" placeholder="Enter a city name">
+                    <button class="search-btn button is-responsive is-light">Search</button>
+                </form>
+            </div>
+        </div>
+
     </div>
-  
-<!--
+
+
+
+    <!--
     <div class="results box">
 
         <h2>Airport Results</h2>

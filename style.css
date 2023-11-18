@@ -1,13 +1,13 @@
 :root {
     --primaryColor: #0c686b;
-    --secondaryColor: #2ac9ce;
+    --secondaryColor: #2cd1b2;
     --tertiaryColor: #df6f19;
     --buttonColor: #686d70;
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     --roundedCorners: 7px;
 }
 
-/*Bulma, creates even spacing around all block elements*/
+/* Bulma; creates even spacing around all block elements */
 .block:not(:last-child) {
     margin-bottom: 1.5rem;
 }
@@ -18,6 +18,9 @@ body {
     display: flex;
     flex-direction: column;
     margin: 2%;
+    background-image: url("./images/airplane-sunset.jpg");
+    background-position: center;
+    background-size: cover;
     background-color: var(--primaryColor)
 }
 
@@ -30,7 +33,7 @@ header {
     color: white;
 }
 
-/* Replaced with Bulma*/
+/* Replaced with Bulma */
 
 /*
 body,
@@ -60,9 +63,10 @@ html {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 */
+
 #input-boxes {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: start;
 }
 
@@ -71,7 +75,7 @@ html {
     flex-direction: column;
     margin: 1%;
     padding: 2%;
-    width: 45%;
+    width: 40%;
 }
 
 #search-boxes {
@@ -79,7 +83,7 @@ html {
     flex-direction: column;
     margin: 1%;
     padding: 2%;
-    width: 40%;
+    width: 30%;
 }
 
 #airport-container {
@@ -106,6 +110,16 @@ html {
     border-radius: var(--roundedCorners);
 }
 
+#airport-results {
+    margin: 1%;
+    padding: 2%;
+}
+
+#hotel-results {
+    margin: 1%;
+    padding: 2%;
+}
+
 .button {
     margin: 2%;
 }
@@ -123,7 +137,8 @@ html {
     display: block;
 }
 
-/* Replaced with Bulma framework styling*/
+/* Replaced with Bulma framework styling */
+
 /*
 button {
     background-color: var(--buttonColor);

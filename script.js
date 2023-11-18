@@ -131,3 +131,29 @@ $(function () {
     return date;
   }
 });
+
+// Create checklist item from user input
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("checklist-input").value;
+  var task = document.createTextNode(inputValue);
+  li.appendChild(task);
+  if (inputValue === '') {
+    return;
+  } else {
+    document.getElementById("checklist-items").appendChild(li);
+  }
+  document.getElementById("checklist-input").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}

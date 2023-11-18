@@ -59,12 +59,16 @@ function destId(event) {
       console.log(result);
       destIdResult = result.data[0].dest_id;
       console.log(destIdResult);
+      checkHotels();
     });
-  checkHotels();
 }
 
 function checkHotels() {
-  arrivalDate=document.getElementById
+  arrivalDate = document.getElementById("from").value;
+  console.log(arrivalDate);
+  departureDate = document.getElementById("to").value;
+  console.log(departureDate);
+
   var hotelsUrl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels?dest_id=" +
     destIdResult +
@@ -88,41 +92,42 @@ function checkHotels() {
       console.log(result);
     });
 }
-
 searchAirportEl.addEventListener("submit", checkAirports);
-
 searchHotelEl.addEventListener("submit", destId);
 
-// Date picker 
-
-$( function() {
-  var dateFormat = "mm/dd/yy",
-    from = $( "#from" )
+$(function () {
+  var dateFormat = "yy-mm-dd",
+    from = $("#from")
       .datepicker({
+        dateFormat: "yy-mm-dd",
+
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 1
+        numberOfMonths: 1,
       })
-      .on( "change", function() {
-        to.datepicker( "option", "minDate", getDate( this ) );
+      .on("change", function () {
+        to.datepicker("option", "minDate", getDate(this));
       }),
-    to = $( "#to" ).datepicker({
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1
-    })
-    .on( "change", function() {
-      from.datepicker( "option", "maxDate", getDate( this ) );
-    });
+    to = $("#to")
+      .datepicker({
+        dateFormat: "yy-mm-dd",
 
-  function getDate( element ) {
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+      })
+      .on("change", function () {
+        from.datepicker("option", "maxDate", getDate(this));
+      });
+
+  function getDate(element) {
     var date;
     try {
-      date = $.datepicker.parseDate( dateFormat, element.value );
-    } catch( error ) {
+      date = $.datepicker.parseDate(dateFormat, element.value);
+    } catch (error) {
       date = null;
     }
 
     return date;
   }
-} );
+});

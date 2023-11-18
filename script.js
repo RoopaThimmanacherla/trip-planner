@@ -131,6 +131,7 @@ $(function () {
     return date;
   }
 });
+
 // Create checklist item from user input
 function newElement() {
   var li = document.createElement("li");
@@ -147,3 +148,4 @@ function newElement() {
   var span = document.createElement("SPAN");
   li.appendChild(span);
 }
+

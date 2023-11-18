@@ -4,7 +4,7 @@
     --tertiaryColor: #df6f19;
     --buttonColor: #686d70;
     --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    --roundedCorners: 15px;
+    --roundedCorners: 7px;
 }
 
 /*Bulma, creates even spacing around all block elements*/
@@ -38,7 +38,7 @@ html {
 #hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
         url("./images/airplane-sunset.jpg");
-    height: 50%;
+    height: 50vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,36 +52,76 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 64px;
+    font-size: 300%;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+#input-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
 
+#checklist-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    padding: 2%;
+    width: 45%;
+}
+
+#search-boxes {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    padding: 2%;
+    width: 40%;
+}
 
 #airport-container {
-    margin: 60px auto;
+    margin: 1%;
+    padding: 2%;
     text-align: center;
-    font-size: 36px;
+    font-size: 150%;
     box-shadow: var(--shadow);
     transition: 0.3s;
-    width: 60vw;
     color: white;
-    background-color: var(--secondaryColor);
-    padding: 2%;
+    background-color: var(--secondaryColor); 
     border-radius: var(--roundedCorners); 
 }
 
 #hotel-container {
-    margin: 60px auto;
+    margin: 1%;
     text-align: center;
-    font-size: 36px;
+    font-size: 150%;
     box-shadow: var(--shadow);
     transition: 0.3s;
-    width: 60vw;
     color: white;
     background-color: var(--secondaryColor);
     padding: 2%;
     border-radius: var(--roundedCorners);
+}
+
+.button {
+    margin: 2%;
+}
+
+.input {
+    margin: 1%;
+    padding: 2%;
+}
+
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+    background-color: #f44336;
+    color: white;
 }
 
 .hide {

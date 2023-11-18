@@ -59,12 +59,16 @@ function destId(event) {
       console.log(result);
       destIdResult = result.data[0].dest_id;
       console.log(destIdResult);
+      checkHotels();
     });
-  checkHotels();
 }
 
 function checkHotels() {
-  arrivalDate=document.getElementById
+  arrivalDate = document.getElementById("from").value;
+  console.log(arrivalDate);
+  departureDate = document.getElementById("to").value;
+  console.log(departureDate);
+
   var hotelsUrl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels?dest_id=" +
     destIdResult +
@@ -88,41 +92,67 @@ function checkHotels() {
       console.log(result);
     });
 }
-
 searchAirportEl.addEventListener("submit", checkAirports);
-
 searchHotelEl.addEventListener("submit", destId);
 
-// Date picker 
-
-$( function() {
-  var dateFormat = "mm/dd/yy",
-    from = $( "#from" )
+$(function () {
+  var dateFormat = "yy-mm-dd",
+    from = $("#from")
       .datepicker({
+        dateFormat: "yy-mm-dd",
+
         defaultDate: "+1w",
         changeMonth: true,
-        numberOfMonths: 1
+        numberOfMonths: 1,
       })
-      .on( "change", function() {
-        to.datepicker( "option", "minDate", getDate( this ) );
+      .on("change", function () {
+        to.datepicker("option", "minDate", getDate(this));
       }),
-    to = $( "#to" ).datepicker({
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1
-    })
-    .on( "change", function() {
-      from.datepicker( "option", "maxDate", getDate( this ) );
-    });
+    to = $("#to")
+      .datepicker({
+        dateFormat: "yy-mm-dd",
 
-  function getDate( element ) {
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+      })
+      .on("change", function () {
+        from.datepicker("option", "maxDate", getDate(this));
+      });
+
+  function getDate(element) {
     var date;
     try {
-      date = $.datepicker.parseDate( dateFormat, element.value );
-    } catch( error ) {
+      date = $.datepicker.parseDate(dateFormat, element.value);
+    } catch (error) {
       date = null;
     }
 
     return date;
   }
-} );
+});
+// Create checklist item from user input
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("checklist-input").value;
+  var task = document.createTextNode(inputValue);
+  li.appendChild(task);
+  if (inputValue === '') {
+    return;
+  } else {
+    document.getElementById("checklist-items").appendChild(li);
+  }
+  document.getElementById("checklist-input").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function () {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}

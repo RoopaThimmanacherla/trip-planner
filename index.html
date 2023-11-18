@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trip Planner</title>
-    <link rel="stylesheet" href="./reset.css" />     
+    <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css" />
@@ -15,13 +15,19 @@
 
 <body>
 
-    <div id="hero-image">
-        <div id="hero-text">
-            <h1>Plan Your Trip</h1>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <p id="hero-text" class="title">
+                Plan Your Trip
+            </p>
+            <p class="subtitle">
+                Search for flights and hotels
+            </p>
         </div>
-      
-    <div id="input-boxes">
-        <div id="checklist-container">
+    </section>
+
+    <main id="input-boxes">
+        <section id="checklist-container">
             <div id="add-item" class="box">
                 <h2><b>Travel Checklist:</b></h2>
                 <input class="input" type="text" id="checklist-input" placeholder="add task">
@@ -35,61 +41,50 @@
                 <li><label class="checkbox"><input type="checkbox"> Pack suitcase</label></li>
                 <li><label class="checkbox"><input type="checkbox"> Check in for flight</label></li>
             </ul>
-        </div>
+            <button class="clear-btn button is-responsive is-light">Clear List</button>
+        </section>
 
-        <div id="search-boxes">
+        <section id="search-boxes">
             <div id="airport-container">
                 <form class="airport-container">
-                    <h3>Search Nearby Airports</h3>
-                    <input class="input city-input" id="destination-airport" type="text"placeholder="Enter a city name">
+                    <h3>Search Airports</h3>
+                    <input class="input city-input" id="destination-airport" type="text"
+                        placeholder="Enter a city name">
                     <button class="search-btn button is-responsive is-light">Search</button>
                 </form>
             </div>
 
+            <div class="airport-results box">
+                <h2><b>Airport Results: </b></h2>
+                <ul id="airport-results">
+                    <li> test </li>
+                </ul>
+            </div>
+
             <div id="hotel-container">
                 <form class="hotel-container">
-                    <h3>Search Nearby Hotels</h3>
+                    <h3>Search Hotels</h3>
                     <div>
-                        <input class="input city-input" id="destination-hotel" type="text" placeholder="Enter a city name">
+                        <input class="input city-input" id="destination-hotel" type="text"
+                            placeholder="Enter a city name">
                     </div>
-                    <div>    
-                        <label for="from">Arrival Date: </label><input class ="input" type="text" id="from" name="from">
+                    <div>
+                        <label for="from">Arrival Date: </label><input class="input" type="text" id="from" name="from">
                         <label for="to">Departure Date: </label><input class="input" type="text" id="to" name="to">
-                    </div>  
-                        <button class="search-btn button is-responsive is-light">Search</button> 
+                    </div>
+                    <button class="search-btn button is-responsive is-light">Search</button>
                 </form>
             </div>
-        </div>
-    </div>
 
+            <div class="hotel-results box">
+                <h2><b>Hotel Results</b></h2>
+                <ul class="hotel-results">
+                    <li> test </li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-
-    <!--
-    <div class="results box">
-
-        <h2>Airport Results</h2>
-        <ul class="air-results">
-            <li class="card">
-                <h3>(11-13-2023)</h3>
-                <img src="placeholder" alt="airport-pic">
-                <h4>Location:</h4>
-                <h4>Address:</h4>
-            </li>
-        </ul>
-    </div>
-
-    <div class="results box">
-        <h2>Hotel Results</h2>
-        <ul class="hotel-results">
-            <li class="card">
-                <h3>(11-13-2023)</h3>
-                <img src="placeholder" alt="hotel-pic">
-                <h4>Location:</h4>
-                <h4>Address:</h4>
-            </li>
-        </ul>
-    </div>
--->
     <script src="./script.js"></script>
 </body>
 

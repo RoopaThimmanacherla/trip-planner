@@ -8,6 +8,7 @@ var hotelName;
 var airportList = [];
 var modalBg = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
+var modalMsg = document.getElementById("Modal-Message");
 
 function airportListEmpty(event) {
   event.preventDefault();
@@ -47,6 +48,7 @@ function checkAirports() {
           .classList.remove("show");
 
         modal.classList.add("is-active");
+        modalMsg.innerHTML = "No Airports for the city entered!";
         modalBg.addEventListener("click", function () {
           modal.classList.remove("is-active");
         });
@@ -93,6 +95,17 @@ function destId() {
       return response.json();
     })
     .then(function (result) {
+      if (result.data.length === 0) {
+        document
+          .getElementById("hotel-results-container")
+          .classList.remove("show");
+        modal.classList.add("is-active");
+        modalMsg.innerHTML =
+          "No Hotels for the city entered!Please enter the correct city";
+        modalBg.addEventListener("click", function () {
+          modal.classList.remove("is-active");
+        });
+      }
       console.log(result);
       destIdResult = result.data[0].dest_id;
       console.log(destIdResult);
@@ -185,8 +198,6 @@ $(function () {
     return date;
   }
 });
-searchAirportEl.addEventListener("submit", airportListEmpty);
-searchHotelEl.addEventListener("submit", hotelsListEmpty);
 
 // Create checklist item from user input
 
@@ -218,3 +229,6 @@ function renderChecklist() {
   li.prepend(checkbox, " ");
   li.prepend(label);
 }
+
+searchAirportEl.addEventListener("submit", airportListEmpty);
+searchHotelEl.addEventListener("submit", hotelsListEmpty);

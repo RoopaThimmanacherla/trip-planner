@@ -1,158 +1,156 @@
 :root {
-    --primaryColor: #0c686b;
-    --secondaryColor: #2cd1b2;
-    --tertiaryColor: #df6f19;
-    --buttonColor: #686d70;
-    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    --roundedCorners: 7px;
+  --primaryColor: #0c686b;
+  --secondaryColor: #2cd1b2;
+  --tertiaryColor: #df6f19;
+  --buttonColor: #686d70;
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --roundedCorners: 7px;
 }
 
 /* Bulma; creates even spacing around all block elements */
 .block:not(:last-child) {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 body {
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin: 2%;
-    background-image: url("./images/airplane-sunset.jpg");
-    background-position: center;
-    background-size: cover;
-    background-color: var(--primaryColor)
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  background-image: url("./images/airplane-sunset.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: var(--primaryColor);
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1%;
-    background-color: var(--primaryColor);
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: var(--primaryColor);
+  color: white;
 }
 
 #input-boxes {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 
 #checklist-container {
-    display: flex;
-    flex-direction: column;
-    margin: 1%;
-    padding: 2%;
-    width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  padding: 2%;
+  width: 40%;
 }
 
 #search-boxes {
-    display: flex;
-    flex-direction: column;
-    margin: 1%;
-    padding: 2%;
-    width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  padding: 2%;
+  width: 30%;
 }
 
 #airport-container {
-    margin: 1%;
-    padding: 2%;
-    text-align: center;
-    font-size: 150%;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
-    color: white;
-    background-color: var(--secondaryColor);
-    border-radius: var(--roundedCorners);
+  margin: 1%;
+  padding: 2%;
+  text-align: center;
+  font-size: 150%;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+  color: white;
+  background-color: var(--secondaryColor);
+  border-radius: var(--roundedCorners);
 }
 
 #hotel-container {
-    margin: 1%;
-    text-align: center;
-    font-size: 150%;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
-    color: white;
-    background-color: var(--secondaryColor);
-    padding: 2%;
-    border-radius: var(--roundedCorners);
+  margin: 1%;
+  text-align: center;
+  font-size: 150%;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+  color: white;
+  background-color: var(--secondaryColor);
+  padding: 2%;
+  border-radius: var(--roundedCorners);
 }
 
 #airport-results {
-    margin: 1%;
-    padding: 2%;
+  margin: 1%;
+  padding: 2%;
 }
 
 #hotel-results {
-    margin: 1%;
-    padding: 2%;
+  margin: 1%;
+  padding: 2%;
 }
 
 .button {
-    margin: 2%;
+  margin: 2%;
 }
 
 .input {
-    margin: 1%;
-    padding: 2%;
+  margin: 1%;
+  padding: 2%;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
+}
+.modal-box {
+  width: 300px;
+  height: 50px;
+  text-align: center;
 }
 
 @media screen and (max-width: 1408px) {
+  #checklist-container {
+    width: 40%;
+  }
 
-    #checklist-container {
-        width: 40%;
-    }
-
-    #search-boxes {
-        width: 40%;
-    }
+  #search-boxes {
+    width: 40%;
+  }
 }
 
-
 @media screen and (max-width: 1216px) {
+  #checklist-container {
+    width: 40%;
+  }
 
-    #checklist-container {
-        width: 40%;
-    }
-
-    #search-boxes {
-        width: 45%;
-    }
+  #search-boxes {
+    width: 45%;
+  }
 }
 
 @media screen and (max-width: 992px) {
+  #checklist-container {
+    width: 49%;
+  }
 
-    #checklist-container {
-        width: 49%;
-    }
-
-    #search-boxes {
-        width: 47%;
-    }
+  #search-boxes {
+    width: 47%;
+  }
 }
-
 
 @media screen and (max-width: 768px) {
+  #input-boxes {
+    flex-direction: column;
+  }
 
-    #input-boxes {
-        flex-direction: column;
-    }
+  #checklist-container {
+    width: 95%;
+  }
 
-    #checklist-container {
-        width: 95%;
-    }
-
-    #search-boxes {
-        width: 95%;
-    }
+  #search-boxes {
+    width: 95%;
+  }
 }
-

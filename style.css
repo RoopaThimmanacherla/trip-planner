@@ -33,37 +33,6 @@ header {
     color: white;
 }
 
-/* Replaced with Bulma */
-
-/*
-body,
-html {
-    height: 100%;
-}
-
-#hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-        url("./images/airplane-sunset.jpg");
-    height: 500px;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-#hero-text {
-    text-align: center;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 300%;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-*/
-
 #input-boxes {
     display: flex;
     justify-content: space-between;
@@ -94,8 +63,8 @@ html {
     box-shadow: var(--shadow);
     transition: 0.3s;
     color: white;
-    background-color: var(--secondaryColor); 
-    border-radius: var(--roundedCorners); 
+    background-color: var(--secondaryColor);
+    border-radius: var(--roundedCorners);
 }
 
 #hotel-container {
@@ -137,25 +106,32 @@ html {
     display: block;
 }
 
-/* Replaced with Bulma framework styling */
+@media screen and (max-width: 992px) {
 
-/*
-button {
-    background-color: var(--buttonColor);
-    box-shadow: var(--shadow);
-    border: none;
-    color: white;
-    margin-top: 2%;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: var(--roundedCorners); 
+    #checklist-container {
+        width: 49%;
+    }
+
+    #search-boxes {
+        width: 47%;
+    }
+
+
 }
 
-button:hover {
-    cursor: pointer;
+@media screen and (max-width: 768px) {
+
+    #input-boxes {
+        flex-direction: column;
+    }
+
+    #checklist-container {
+        width: 95%;
+    }
+
+    #search-boxes {
+        width: 95%;
+    }
+
+
 }
-*/

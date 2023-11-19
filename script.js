@@ -4,9 +4,18 @@ var airportUrl;
 var destIdResult;
 var arrivalDate;
 var departureDate;
+var hotelName;
+var airportList = [];
 
-function checkAirports(event) {
+function airportListEmpty(event) {
   event.preventDefault();
+
+  var airportListEmpty = document.getElementById("airport-results");
+  airportListEmpty.innerHTML = " ";
+  checkAirports();
+}
+
+function checkAirports() {
   var destination = document.getElementById("destination-airport").value;
   console.log(destination);
   if (!destination) {
@@ -27,12 +36,25 @@ function checkAirports(event) {
     })
     .then(function (airport) {
       console.log(airport);
+      for (var i = 0; i < airport.length; i++) {
+        if (airport[i].name.includes("Airport")) {
+          airportList.push(airport[i]);
+          console.log(airportList);
+        }
+      }
+      for (var j = 0; j < airportList.length; j++) {
+        console.log(airportList[j].name);
+        var airportListItem = $(
+          '<li style= "margin-top:10px;text-align: center">'
+        );
+        airportListItem.text(airportList[j].name);
+        $("#airport-results").append(airportListItem);
+      }
+      airportList = [];
     });
-  console.log(searchAirportEl);
 }
 
-function destId(event) {
-  event.preventDefault();
+function destId() {
   var hotelInTheCity = document.getElementById("destination-hotel").value;
   console.log(hotelInTheCity);
 
@@ -63,6 +85,14 @@ function destId(event) {
     });
 }
 
+function hotelsListEmpty(event) {
+  event.preventDefault();
+
+  var hotelListEmpty = document.getElementById("hotel-results");
+  hotelListEmpty.innerHTML = " ";
+  destId();
+}
+
 function checkHotels() {
   arrivalDate = document.getElementById("from").value;
   console.log(arrivalDate);
@@ -90,10 +120,17 @@ function checkHotels() {
     })
     .then(function (result) {
       console.log(result);
+      for (var i = 0; i < 5; i++) {
+        hotelName = result.data.hotels[i].property.name;
+        console.log(hotelName);
+        var hotelListItem = $(
+          '<li style="list-style-type: none;margin-top:10px;text-align: center">'
+        );
+        hotelListItem.text(result.data.hotels[i].property.name);
+        $("#hotel-results").append(hotelListItem);
+      }
     });
 }
-searchAirportEl.addEventListener("submit", checkAirports);
-searchHotelEl.addEventListener("submit", destId);
 
 $(function () {
   var dateFormat = "yy-mm-dd",
@@ -131,34 +168,5 @@ $(function () {
     return date;
   }
 });
-
-// Create checklist item from user input
-
-function renderChecklist() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("checklist-input").value;
-  var task = document.createTextNode(inputValue);
-  li.appendChild(task);
-  if (inputValue === '') {
-    return;
-  } else {
-    document.getElementById("checklist").appendChild(li);
-  }
-  document.getElementById("checklist-input").value = "";
-
-  var span = document.createElement("SPAN");
-  li.appendChild(span);
-
-  // Create checkbox element for new list items
-
-  var checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.id = "checkbox";
-
-  var label = document.createElement("label");
-  label.class = "checkbox";
-  label.htmlFor = "checkbox";
-
-  li.prepend(checkbox, ' ');
-  li.prepend(label);
-}
+searchAirportEl.addEventListener("submit", airportListEmpty);
+searchHotelEl.addEventListener("submit", hotelsListEmpty);

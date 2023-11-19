@@ -10,6 +10,8 @@ var airportList = [];
 function airportListEmpty(event) {
   event.preventDefault();
 
+  document.getElementById('airport-results-container').classList.add('show');
+
   var airportListEmpty = document.getElementById("airport-results");
   airportListEmpty.innerHTML = " ";
   checkAirports();
@@ -87,7 +89,9 @@ function destId() {
 
 function hotelsListEmpty(event) {
   event.preventDefault();
-
+  
+  document.getElementById('hotel-results-container').classList.add('show');
+  
   var hotelListEmpty = document.getElementById("hotel-results");
   hotelListEmpty.innerHTML = " ";
   destId();

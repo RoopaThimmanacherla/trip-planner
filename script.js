@@ -42,7 +42,9 @@ function checkAirports() {
         .classList.add("show");
 
       if (airport.length === 0) {
-        document;
+        document
+          .getElementById("airport-results-container")
+          .classList.remove("show");
 
         modal.classList.add("is-active");
         modalBg.addEventListener("click", function () {

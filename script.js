@@ -89,7 +89,7 @@ function destId() {
 
 function hotelsListEmpty(event) {
   event.preventDefault();
-
+  
   document.getElementById('hotel-results-container').classList.add('show');
   
   var hotelListEmpty = document.getElementById("hotel-results");

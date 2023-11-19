@@ -106,6 +106,29 @@ header {
     display: block;
 }
 
+@media screen and (max-width: 1408px) {
+
+    #checklist-container {
+        width: 40%;
+    }
+
+    #search-boxes {
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 1216px) {
+
+    #checklist-container {
+        width: 40%;
+    }
+
+    #search-boxes {
+        width: 45%;
+    }
+}
+
 @media screen and (max-width: 992px) {
 
     #checklist-container {
@@ -115,9 +138,8 @@ header {
     #search-boxes {
         width: 47%;
     }
-
-
 }
+
 
 @media screen and (max-width: 768px) {
 
@@ -132,6 +154,5 @@ header {
     #search-boxes {
         width: 95%;
     }
-
-
 }
+

@@ -31,17 +31,19 @@
             <div id="add-item" class="box">
                 <h2><b>Travel Checklist:</b></h2>
                 <input class="input" type="text" id="checklist-input" placeholder="add task">
-                <span onclick="newElement()" class="addBtn button is-responsive is-primary">Add</span>
+                <span onclick="renderChecklist()" class="addBtn button is-responsive is-primary">Add</span>
             </div>
 
-            <ul id="checklist-items" class="box">
-                <li><label class="checkbox"><input type="checkbox"> Book flight</label></li>
-                <li><label class="checkbox"><input type="checkbox"> Book hotel</label></li>
-                <li><label class="checkbox"><input type="checkbox"> Rent car</label></li>
-                <li><label class="checkbox"><input type="checkbox"> Pack suitcase</label></li>
-                <li><label class="checkbox"><input type="checkbox"> Check in for flight</label></li>
+            <div>
+                <ul id="checklist" class="box">
+                    <li><label class="checkbox"><input type="checkbox"> Book flight</label></li>
+                    <li><label class="checkbox"><input type="checkbox"> Book hotel</label></li>
+                    <li><label class="checkbox"><input type="checkbox"> Rent car</label></li>
+                    <li><label class="checkbox"><input type="checkbox"> Pack suitcase</label></li>
+                    <li><label class="checkbox"><input type="checkbox"> Check in for flight</label></li>
+                </ul>
                 <button class="clear-btn button is-responsive is-primary">Clear List</button>
-            </ul>
+            </div>    
         </section>
 
         <section id="search-boxes">

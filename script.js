@@ -133,7 +133,8 @@ $(function () {
 });
 
 // Create checklist item from user input
-function newElement() {
+
+function renderChecklist() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("checklist-input").value;
   var task = document.createTextNode(inputValue);
@@ -141,11 +142,23 @@ function newElement() {
   if (inputValue === '') {
     return;
   } else {
-    document.getElementById("checklist-items").appendChild(li);
+    document.getElementById("checklist").appendChild(li);
   }
   document.getElementById("checklist-input").value = "";
 
   var span = document.createElement("SPAN");
   li.appendChild(span);
-}
 
+  // Create checkbox element for new list items
+
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = "checkbox";
+
+  var label = document.createElement("label");
+  label.class = "checkbox";
+  label.htmlFor = "checkbox";
+
+  li.prepend(checkbox, ' ');
+  li.prepend(label);
+}

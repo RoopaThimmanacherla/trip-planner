@@ -170,3 +170,34 @@ $(function () {
 });
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
+
+// Create checklist item from user input
+
+function renderChecklist() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("checklist-input").value;
+  var task = document.createTextNode(inputValue);
+  li.appendChild(task);
+  if (inputValue === '') {
+    return;
+  } else {
+    document.getElementById("checklist").appendChild(li);
+  }
+  document.getElementById("checklist-input").value = "";
+
+  var span = document.createElement("SPAN");
+  li.appendChild(span);
+
+  // Create checkbox element for new list items
+
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = "checkbox";
+
+  var label = document.createElement("label");
+  label.class = "checkbox";
+  label.htmlFor = "checkbox";
+
+  li.prepend(checkbox, ' ');
+  li.prepend(label);
+}

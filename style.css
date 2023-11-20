@@ -140,6 +140,12 @@ ol li {
   text-align: center;
 }
 
+#airport-results-container {
+  background-color: var(--secondaryColor);
+}
+#hotel-results-container {
+  background-color: var(--secondaryColor);
+}
 @media screen and (max-width: 1408px) {
   #checklist-container {
     width: 40%;

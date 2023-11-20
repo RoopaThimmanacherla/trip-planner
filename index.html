@@ -25,6 +25,7 @@
         <p class="subtitle">Search for flights and hotels</p>
       </div>
     </section>
+    
     <!--Modal to diaplay messages-->
     <div class="modal">
       <div class="modal-background"></div>
@@ -32,6 +33,7 @@
         <p id="Modal-Message"><b></b></p>
       </div>
     </div>
+    
     <main id="input-boxes">
       <section id="checklist-container">
         <div id="add-item" class="box">
@@ -44,22 +46,20 @@
           />
           <span
             onclick="renderChecklist()"
-            class="addBtn button is-responsive is-primary"
-            >Add</span
-          >
+            class="addBtn button is-responsive is-primary">
+            Add
+          </span>
         </div>
 
         <div>
           <ul id="checklist" class="box">
             <li>
               <label class="checkbox"
-                ><input type="checkbox" /> Book flight</label
-              >
+                ><input type="checkbox" /> Book flight</label>
             </li>
             <li>
               <label class="checkbox"
-                ><input type="checkbox" /> Book hotel</label
-              >
+                ><input type="checkbox" /> Book hotel</label>
             </li>
           </ul>
           <button class="clear-btn button is-responsive is-primary">
@@ -86,12 +86,12 @@
 
         <div id="airport-results-container" class="airport-results box hide">
           <h2><b>Airport Results: </b></h2>
-          <ul id="airport-results"></ul>
+          <ol id="airport-results"></ol>
         </div>
 
         <div id="hotel-results-container" class="hotel-results box hide">
           <h2><b>Hotel Results: </b></h2>
-          <ul id="hotel-results"></ul>
+          <ol id="hotel-results"></ol>
         </div>
 
         <div id="hotel-container">
@@ -117,7 +117,6 @@
             </button>
           </form>
         </div>
-
       </section>
 
     </main>

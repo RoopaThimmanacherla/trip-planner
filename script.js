@@ -8,7 +8,9 @@ var hotelName;
 var airportList = [];
 var modalBg = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
+var modalMsg = document.getElementById("Modal-Message");
 
+//Doesn't display results container if there are no results.
 function airportListEmpty(event) {
   event.preventDefault();
   var airportListEmpty = document.getElementById("airport-results");
@@ -16,11 +18,18 @@ function airportListEmpty(event) {
   checkAirports();
 }
 
+//Get list of airports and display in results section.
 function checkAirports() {
   var destination = document.getElementById("destination-airport").value;
   console.log(destination);
   if (!destination) {
     console.log("Please enter the destination");
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the City !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+      return;
+    });
     return;
   }
 
@@ -47,6 +56,7 @@ function checkAirports() {
           .classList.remove("show");
 
         modal.classList.add("is-active");
+        modalMsg.innerHTML = "No Airports for the city entered!";
         modalBg.addEventListener("click", function () {
           modal.classList.remove("is-active");
         });
@@ -63,19 +73,27 @@ function checkAirports() {
           '<li style= "margin-top:10px;text-align: center">'
         );
         airportListItem.text(airportList[j].name);
+        $("#airport-results").css("list-style", "decimal");
+
         $("#airport-results").append(airportListItem);
       }
       airportList = [];
     });
 }
 
+//Get the destination id for the entered city
 function destId() {
   var hotelInTheCity = document.getElementById("destination-hotel").value;
   console.log(hotelInTheCity);
 
   if (!hotelInTheCity) {
     console.log("please enter the city to search hotel");
-    return;
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the City !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+      return;
+    });
   }
   var destIdurl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination?query=" +
@@ -93,12 +111,25 @@ function destId() {
       return response.json();
     })
     .then(function (result) {
+      if (result.data.length === 0) {
+        document
+          .getElementById("hotel-results-container")
+          .classList.remove("show");
+        modal.classList.add("is-active");
+        modalMsg.innerHTML =
+          "No Hotels for the city entered!Please enter the correct city.";
+        modalBg.addEventListener("click", function () {
+          modal.classList.remove("is-active");
+        });
+      }
       console.log(result);
       destIdResult = result.data[0].dest_id;
       console.log(destIdResult);
       checkHotels();
     });
 }
+
+//Doesn't display results container if there are no results.
 
 function hotelsListEmpty(event) {
   event.preventDefault();
@@ -110,11 +141,26 @@ function hotelsListEmpty(event) {
   destId();
 }
 
+//Get list of airports and display in results section.
 function checkHotels() {
   arrivalDate = document.getElementById("from").value;
   console.log(arrivalDate);
   departureDate = document.getElementById("to").value;
   console.log(departureDate);
+
+  if (arrivalDate == "") {
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the arrival date !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+  } else if (departureDate == "") {
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the departure date !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+  }
 
   var hotelsUrl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels?dest_id=" +
@@ -141,9 +187,11 @@ function checkHotels() {
         hotelName = result.data.hotels[i].property.name;
         console.log(hotelName);
         var hotelListItem = $(
-          '<li style="list-style-type: none;margin-top:10px;text-align: center">'
+          '<li style="margin-top:10px;text-align: center">'
         );
         hotelListItem.text(result.data.hotels[i].property.name);
+        $("#hotel-results").css("list-style", "decimal");
+
         $("#hotel-results").append(hotelListItem);
       }
     });
@@ -185,8 +233,6 @@ $(function () {
     return date;
   }
 });
-searchAirportEl.addEventListener("submit", airportListEmpty);
-searchHotelEl.addEventListener("submit", hotelsListEmpty);
 
 // Create checklist item from user input
 
@@ -218,3 +264,6 @@ function renderChecklist() {
   li.prepend(checkbox, " ");
   li.prepend(label);
 }
+
+searchAirportEl.addEventListener("submit", airportListEmpty);
+searchHotelEl.addEventListener("submit", hotelsListEmpty);

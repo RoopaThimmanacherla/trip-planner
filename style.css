@@ -1,6 +1,6 @@
 :root {
   --primaryColor: #2cd1b2;
-  --secondaryColor: #0c686b;
+  --secondaryColor: #0c686b;;
   --tertiaryColor: #aeefe4;
   --buttonColor: #686d70;
   --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -67,6 +67,18 @@ header {
   border-radius: var(--roundedCorners);
 }
 
+#hotel-container {
+  margin: 1%;
+  padding: 2%;
+  text-align: center;
+  font-size: 150%;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+  color: white;
+  background-color: var(--primaryColor);
+  border-radius: var(--roundedCorners);
+}
+
 #airport-results-container {
   margin: 2%;
   background-color: var(--secondaryColor);
@@ -77,18 +89,6 @@ header {
   margin: 1%;
   padding: 2%;
   background-color: var(--tertiaryColor);
-  border-radius: var(--roundedCorners);
-}
-
-#hotel-container {
-  margin: 1%;
-  padding: 2%;
-  text-align: center;
-  font-size: 150%;
-  box-shadow: var(--shadow);
-  transition: 0.3s;
-  color: white;
-  background-color: var(--primaryColor);
   border-radius: var(--roundedCorners);
 }
 
@@ -117,6 +117,7 @@ ol li {
   list-style-position: inside;
 }
 
+
 .button {
   margin: 2%;
 }
@@ -133,13 +134,18 @@ ol li {
 .show {
   display: block;
 }
-
 .modal-box {
   width: 300px;
   height: 50px;
   text-align: center;
 }
 
+#airport-results-container {
+  background-color: var(--secondaryColor);
+}
+#hotel-results-container {
+  background-color: var(--secondaryColor);
+}
 @media screen and (max-width: 1408px) {
   #checklist-container {
     width: 40%;
@@ -147,7 +153,7 @@ ol li {
 
   #search-boxes {
     width: 40%;
-  } 
+  }
 }
 
 @media screen and (max-width: 1216px) {
@@ -157,30 +163,6 @@ ol li {
 
   #search-boxes {
     width: 45%;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  #checklist-container {
-    width: 49%;
-  }
-
-  #search-boxes {
-    width: 47%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #input-boxes {
-    flex-direction: column;
-  }
-
-  #checklist-container {
-    width: 95%;
-  }
-
-  #search-boxes {
-    width: 95%;
   }
 }
 

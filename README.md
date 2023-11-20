@@ -20,13 +20,13 @@ The user can add tasks to the checklist and check them off as they are completed
 
 The user can search for airports by entering the name of a city into the search bar. The results will display in a box beneath the search bar. 
 
-The user can search for a hotel by entering the name of a city and the dates they would like to stay. The top 5 results will display in a box beneath the search bar.
+The user can search for a hotel by entering the name of a city and the dates they would like to stay. The top 5 results will display in a box above the search bar.
 
 ![A screenshot of the Trip Planner Website. The background is a sunset with an airplane in silhouette.](images/trip-planner-screenshot.png)
 
 Display results for Airrports:
 
-![image](https://github.com/RoopaThimmanacherla/trip-planner/assets/144958836/666b4b38-96b6-4907-b6c0-887fdc7027d4)
+![image](images/airport-results-screenshot.png)
 
 Display message if no airports in the city:
 
@@ -34,7 +34,7 @@ Display message if no airports in the city:
 
 Display results for Hotels:
 
-![image](https://github.com/RoopaThimmanacherla/trip-planner/assets/144958836/79070940-c674-4f25-b9b2-5fa037316cc0)
+![image](images/hotel-results-screenshot.png)
 
 Display message if no departure date:
 

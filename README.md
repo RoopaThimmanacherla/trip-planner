@@ -24,6 +24,32 @@ The user can search for a hotel by entering the name of a city and the dates the
 
 ![A screenshot of the Trip Planner Website. The background is a sunset with an airplane in silhouette.](images/trip-planner-screenshot.png)
 
+Display results for Airrports:
+
+![image](https://github.com/RoopaThimmanacherla/trip-planner/assets/144958836/666b4b38-96b6-4907-b6c0-887fdc7027d4)
+
+Display message if no airports in the city:
+
+![image](https://github.com/RoopaThimmanacherla/trip-planner/assets/144958836/22deb7e1-8ffb-47e6-8afd-c869f46192ea)
+
+Display results for Hotels:
+
+![image](https://github.com/RoopaThimmanacherla/trip-planner/assets/144958836/79070940-c674-4f25-b9b2-5fa037316cc0)
+
+Display message if no departure date:
+
+![image](https://github.com/RoopaThimmanacherla/trip-planner/assets/144958836/b44283d9-d3a3-4cae-a4a0-fbec97c88f5c)
+
+Display message if the entered city to search hotels is incorrect:
+
+![image](https://github.com/RoopaThimmanacherla/trip-planner/assets/144958836/b3c28054-751d-4f9b-8ab4-1a0bd944d3f0)
+
+
+
+
+
+
+
 ## Credits
 
 **Collaborators:**

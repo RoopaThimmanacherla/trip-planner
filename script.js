@@ -65,6 +65,8 @@ function checkAirports() {
           '<li style= "margin-top:10px;text-align: center">'
         );
         airportListItem.text(airportList[j].name);
+        $("#airport-results").css("list-style", "decimal");
+
         $("#airport-results").append(airportListItem);
       }
       airportList = [];
@@ -154,9 +156,11 @@ function checkHotels() {
         hotelName = result.data.hotels[i].property.name;
         console.log(hotelName);
         var hotelListItem = $(
-          '<li style="list-style-type: none;margin-top:10px;text-align: center">'
+          '<li style="margin-top:10px;text-align: center">'
         );
         hotelListItem.text(result.data.hotels[i].property.name);
+        $("#hotel-results").css("list-style", "decimal");
+
         $("#hotel-results").append(hotelListItem);
       }
     });

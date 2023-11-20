@@ -81,7 +81,7 @@ header {
 
 #airport-results-container {
   margin: 2%;
-  background-color: var(--primaryColor);
+  background-color: var(--secondaryColor);
   color: white;
 }
 
@@ -94,7 +94,7 @@ header {
 
 #hotel-results-container {
   margin: 2%;
-  background-color: var(--primaryColor);
+  background-color: var(--secondaryColor);
   color: white;
 }
 

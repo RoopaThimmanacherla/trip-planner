@@ -1,118 +1,162 @@
 :root {
-    --primaryColor: #0c686b;
-    --secondaryColor: #2ac9ce;
-    --tertiaryColor: #df6f19;
-    --buttonColor: #686d70;
-    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    --roundedCorners: 15px;
+  --primaryColor: #0c686b;
+  --secondaryColor: #2cd1b2;
+  --tertiaryColor: #df6f19;
+  --buttonColor: #686d70;
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --roundedCorners: 7px;
 }
 
-/*Bulma, creates even spacing around all block elements*/
+/* Bulma; creates even spacing around all block elements */
 .block:not(:last-child) {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 body {
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin: 2%;
-    background-color: var(--primaryColor)
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  background-image: url("./images/airplane-sunset.jpg");
+  background-position: center;
+  background-size: cover;
+  background-color: var(--primaryColor);
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1%;
-    background-color: var(--primaryColor);
-    color: white;
-}
-
-body,
-html {
-    height: 100%;
-}
-
-#hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
-        url("./images/airplane-sunset.jpg");
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-#hero-text {
-    text-align: center;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 64px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  background-color: var(--primaryColor);
+  color: white;
 }
 
 #input-boxes {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 
+#checklist-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  padding: 2%;
+  width: 40%;
+}
+
+#search-boxes {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  padding: 2%;
+  width: 30%;
+}
 
 #airport-container {
-    margin: 1%;
-    text-align: center;
-    font-size: 36px;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
-    width: 60vw;
-    color: white;
-    background-color: var(--secondaryColor);
-    padding: 2%;
-    border-radius: var(--roundedCorners); 
+  margin: 1%;
+  padding: 2%;
+  text-align: center;
+  font-size: 150%;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+  color: white;
+  background-color: var(--secondaryColor);
+  border-radius: var(--roundedCorners);
 }
 
 #hotel-container {
-    margin: 1%;
-    text-align: center;
-    font-size: 36px;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
-    width: 60vw;
-    color: white;
-    background-color: var(--secondaryColor);
-    padding: 2%;
-    border-radius: var(--roundedCorners);
+  margin: 1%;
+  text-align: center;
+  font-size: 150%;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+  color: white;
+  background-color: var(--secondaryColor);
+  padding: 2%;
+  border-radius: var(--roundedCorners);
+}
+
+#airport-results {
+  margin: 1%;
+  padding: 2%;
+}
+
+#hotel-results {
+  margin: 1%;
+  padding: 2%;
+}
+
+.button {
+  margin: 2%;
+}
+
+.input {
+  margin: 1%;
+  padding: 2%;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .show {
-    display: block;
+  display: block;
+}
+.modal-box {
+  width: 300px;
+  height: 50px;
+  text-align: center;
 }
 
-/* Replaced with Bulma framework styling*/
-/*
-button {
-    background-color: var(--buttonColor);
-    box-shadow: var(--shadow);
-    border: none;
-    color: white;
-    margin-top: 2%;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: var(--roundedCorners); 
+#airport-results-container {
+  background-color: var(--secondaryColor);
+}
+#hotel-results-container {
+  background-color: var(--secondaryColor);
+}
+@media screen and (max-width: 1408px) {
+  #checklist-container {
+    width: 40%;
+  }
+
+  #search-boxes {
+    width: 40%;
+  }
 }
 
-button:hover {
-    cursor: pointer;
+@media screen and (max-width: 1216px) {
+  #checklist-container {
+    width: 40%;
+  }
+
+  #search-boxes {
+    width: 45%;
+  }
 }
-*/
+
+@media screen and (max-width: 992px) {
+  #checklist-container {
+    width: 49%;
+  }
+
+  #search-boxes {
+    width: 47%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #input-boxes {
+    flex-direction: column;
+  }
+
+  #checklist-container {
+    width: 95%;
+  }
+
+  #search-boxes {
+    width: 95%;
+  }
+}

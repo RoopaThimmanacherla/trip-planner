@@ -108,11 +108,13 @@ header {
 ul li {
   background: white;
   color: black;
+  list-style-position: inside;
 }
 
 ol li {
   background-color: white;
   color: black;
+  list-style-position: inside;
 }
 
 

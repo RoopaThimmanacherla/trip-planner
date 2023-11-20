@@ -30,11 +30,12 @@
     <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-content has-background-white modal-box">
-        <p id="Modal-Message"><b></b></p>
+        <p><b>No Airports for the entered city! </b></p>
       </div>
     </div>
 
     <main id="input-boxes">
+      
       <section id="checklist-container">
         <div id="add-item" class="box">
           <h2><b>Travel Checklist:</b></h2>
@@ -44,26 +45,28 @@
             id="checklist-input"
             placeholder="add task"
           />
+          
           <span
-            onclick="renderChecklist()"
+            onclick="renderChecklist()" 
+            onclick="saveLocalTask()"
             class="addBtn button is-responsive is-primary"
-          >
-            Add
+            >Add
           </span>
         </div>
 
         <div>
           <ul id="checklist" class="box">
             <li>
-              <label class="checkbox"
-                ><input type="checkbox" /> Book flight</label>
+              <label class="checkbox">
+                <input type="checkbox"/> Book flight</label>
             </li>
             <li>
-              <label class="checkbox"
-                ><input type="checkbox" /> Book hotel</label>
+              <label class="checkbox">
+                <input type="checkbox" /> Book hotel</label>
             </li>
           </ul>
-          <button class="clear-btn button is-responsive is-primary" id="clear-button">
+
+          <button id="clear-button" class="clear-btn button is-responsive is-primary">
             Clear List
           </button>
         </div>
@@ -118,10 +121,11 @@
             </button>
           </form>
         </div>
-      </section>
 
+      </section>
     </main>
 
     <script src="./script.js"></script>
   </body>
+
 </html>

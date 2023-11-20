@@ -35,6 +35,12 @@ The user can search for a hotel by entering the name of a city and the dates the
 - [Airport Finder](https://api-ninjas.com/api/airports)
 - [Hotel Finder](https://rapidapi.com/tipsters/api/booking-com)
 
+**CSS Framework:**
+- [Bulma](https://bulma.io/)
+
+**Background Image:** 
+- [Source](https://www.pexels.com/photo/silhouette-of-an-airplane-flying-during-sunset-6629764/)
+
 ## License
 
 This web application was created for educational purposes and does not have a license. 

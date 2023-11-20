@@ -18,7 +18,6 @@ function airportListEmpty(event) {
   checkAirports();
 }
 
-
 //Get list of airports and display in results section.
 function checkAirports() {
   var destination = document.getElementById("destination-airport").value;
@@ -47,16 +46,6 @@ function checkAirports() {
     })
     .then(function (airport) {
       console.log(airport);
-
-      var names = []; //////////////////
-      for (var i = 0; i < airport.length; i++) {   
-        names.push(airport[i].name)
-        }
-
-        localStorage.setItem('portName', JSON.stringify(names));
-        localStorage.getItem('portName');
-        //////////////////works but cant display inner html
-
       document
         .getElementById("airport-results-container")
         .classList.add("show");
@@ -72,21 +61,18 @@ function checkAirports() {
           modal.classList.remove("is-active");
         });
       }
-
       for (var i = 0; i < airport.length; i++) {
         if (airport[i].name.includes("Airport")) {
           airportList.push(airport[i]);
           console.log(airportList);
         }
       }
-      
       for (var j = 0; j < airportList.length; j++) {
         console.log(airportList[j].name);
         var airportListItem = $(
           '<li style= "margin-top:10px;text-align: center">'
         );
         airportListItem.text(airportList[j].name);
-
         $("#airport-results").css("list-style", "decimal");
 
         $("#airport-results").append(airportListItem);
@@ -95,23 +81,19 @@ function checkAirports() {
     });
 }
 
-
 //Get the destination id for the entered city
-
 function destId() {
   var hotelInTheCity = document.getElementById("destination-hotel").value;
   console.log(hotelInTheCity);
 
   if (!hotelInTheCity) {
     console.log("please enter the city to search hotel");
-    return;
     modal.classList.add("is-active");
     modalMsg.innerHTML = "Please enter the City !";
     modalBg.addEventListener("click", function () {
       modal.classList.remove("is-active");
       return;
     });
-
   }
   var destIdurl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination?query=" +
@@ -129,16 +111,13 @@ function destId() {
       return response.json();
     })
     .then(function (result) {
-
-      console.log(result)
-
       if (result.data.length === 0) {
         document
           .getElementById("hotel-results-container")
           .classList.remove("show");
         modal.classList.add("is-active");
         modalMsg.innerHTML =
-          "No Hotels for the city entered! Please enter the correct city.";
+          "No Hotels for the city entered!Please enter the correct city.";
 
         modalBg.addEventListener("click", function () {
           modal.classList.remove("is-active");
@@ -150,7 +129,6 @@ function destId() {
       checkHotels();
     });
 }
-
 
 //Doesn't display results container if there are no results.
 
@@ -164,14 +142,12 @@ function hotelsListEmpty(event) {
   destId();
 }
 
-
 //Get list of airports and display in results section.
 function checkHotels() {
   arrivalDate = document.getElementById("from").value;
   console.log(arrivalDate);
   departureDate = document.getElementById("to").value;
   console.log(departureDate);
-
 
   if (arrivalDate == "") {
     modal.classList.add("is-active");
@@ -208,24 +184,6 @@ function checkHotels() {
     })
     .then(function (result) {
       console.log(result);
-
-      var myHotel = []; ////////////////////
-      for (var i = 0; i < result.length; i++) {   
-        myHotel.push(result[i].name)
-        }
-
-        localStorage.setItem('hotName', JSON.stringify(myHotel));
-        localStorage.getItem('hotName'); //////////////////////
-
-      for (var i = 0; i < 5; i++) {
-        hotelName = result.data.hotels[i].property.name;
-        console.log(hotelName);
-        
-        var hotelListItem = $(
-          '<li style="list-style-type: none;margin-top:10px;text-align: center">'
-        );
-        hotelListItem.text(result.data.hotels[i].property.name);
-
       for (var i = 0; i < 5; i++) {
         hotelName = result.data.hotels[i].property.name;
         console.log(hotelName);
@@ -303,106 +261,10 @@ function renderChecklist() {
   var label = document.createElement("label");
   label.class = "checkbox";
   label.htmlFor = "checkbox";
+
   li.prepend(checkbox, " ");
   li.prepend(label);
-
-
-  function saveLocalTask(task) {
-    localStorage.setItem('task', task);
-  }
-
-  saveLocalTask();
-/*
-  var clearButton = document.getElementById('clear-button');
-
-  clearButton.addEventListener('click', function() {
-    button.textContent = 'clear-button';
-});*/
 }
 
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
-
-// Fetch the API data and store it in local storage
-//var destination = document.getElementById("destination-airport").value;
-
-/*
-fetch('https://api.api-ninjas.com/v1/airports?city=' + destination, {headers: { "X-Api-Key": "WswAb25ac3vvhIzq6bTAVg==AkiaAP2lWNnbRet7" }})
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    console.log(data.names);
-    localStorage.setItem('airportNames', JSON.stringify(data.names));
-
-    displayAirportNames();
-  })
-  .catch(error => console.error(error));*/
-
-// Function to display the airport names from local storage
-/*function displayAirportNames() {
-  var airportList = document.getElementById("airportList");
-  var airportNames = JSON.parse(localStorage.getItem('airportNames'));
-
-  if (airportNames && airportNames.length > 0) {
-    airportList.innerHTML = '';
-    for (var i = 0; i < 6; i++) {
-      var listItem = document.createElement("li");
-      listItem.textContent = airportNames[i];
-      airportList.appendChild(listItem);
-    }
-  } else {
-    airportList.innerHTML = 'No airport names available.';
-  }
-}*/
-
-
-/*
-function displayResults() {
-  var li = document.createElement('li');
-  li.textContent = '';
-}*/
-
-/*
-// Make API call to retrieve search results
-function searchAPI() {
-  // Your code to make API call and retrieve search results goes here
-
-  // Example code to store search results in an array
-  const searchResults = ['Result 1', 'Result 2', 'Result 3', 'Result 4', 'Result 5', 'Result 6'];
-
-  // Save search results in local storage
-  localStorage.setItem('searchResults', JSON.stringify(searchResults));
-}
-
-// Function to display search history from local storage
-function displaySearchHistory() {
-  // Get search results from local storage
-  const searchResults = localStorage.getItem('searchResults');
-
-  // Check if search results exist in local storage
-  if (searchResults) {
-    const searchResultsArray = JSON.parse(searchResults);
-
-    // Create list items dynamically for each search result
-    const searchHistoryList = document.getElementById('searchHistory');
-
-    searchResultsArray.forEach(result => {
-      const listItem = document.createElement('li');
-      listItem.textContent = result;
-      searchHistoryList.appendChild(listItem);
-    });
-  }
-}
-
-// Function to clear search history from local storage
-function clearSearchHistory() {
-  // Clear search results from local storage
-  localStorage.removeItem('searchResults');
-
-  // Clear search history list in HTML
-  document.getElementById('searchHistory').innerHTML = '';
-}
-
-// Call the displaySearchHistory function on page load to show search history
-document.addEventListener('DOMContentLoaded', displaySearchHistory); */
-

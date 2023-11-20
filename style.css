@@ -1,7 +1,7 @@
 :root {
-  --primaryColor: #0c686b;
-  --secondaryColor: #2cd1b2;
-  --tertiaryColor: #df6f19;
+  --primaryColor: #2cd1b2;
+  --secondaryColor: #0c686b;;
+  --tertiaryColor: #aeefe4;
   --buttonColor: #686d70;
   --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   --roundedCorners: 7px;
@@ -21,7 +21,7 @@ body {
   background-image: url("./images/airplane-sunset.jpg");
   background-position: center;
   background-size: cover;
-  background-color: var(--primaryColor);
+  background-color: var(--secondaryColor);
 }
 
 header {
@@ -63,31 +63,58 @@ header {
   box-shadow: var(--shadow);
   transition: 0.3s;
   color: white;
-  background-color: var(--secondaryColor);
+  background-color: var(--primaryColor);
   border-radius: var(--roundedCorners);
 }
 
 #hotel-container {
   margin: 1%;
+  padding: 2%;
   text-align: center;
   font-size: 150%;
   box-shadow: var(--shadow);
   transition: 0.3s;
   color: white;
-  background-color: var(--secondaryColor);
-  padding: 2%;
+  background-color: var(--primaryColor);
   border-radius: var(--roundedCorners);
+}
+
+#airport-results-container {
+  margin: 2%;
+  background-color: var(--primaryColor);
+  color: white;
 }
 
 #airport-results {
   margin: 1%;
   padding: 2%;
+  background-color: var(--tertiaryColor);
+  border-radius: var(--roundedCorners);
+}
+
+#hotel-results-container {
+  margin: 2%;
+  background-color: var(--primaryColor);
+  color: white;
 }
 
 #hotel-results {
   margin: 1%;
   padding: 2%;
+  background-color: var(--tertiaryColor);
+  border-radius: var(--roundedCorners);
 }
+
+ul li {
+  background: white;
+  color: black;
+}
+
+ol li {
+  background-color: white;
+  color: black;
+}
+
 
 .button {
   margin: 2%;
@@ -111,12 +138,6 @@ header {
   text-align: center;
 }
 
-#airport-results-container {
-  background-color: var(--secondaryColor);
-}
-#hotel-results-container {
-  background-color: var(--secondaryColor);
-}
 @media screen and (max-width: 1408px) {
   #checklist-container {
     width: 40%;

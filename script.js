@@ -118,6 +118,7 @@ function destId() {
         modal.classList.add("is-active");
         modalMsg.innerHTML =
           "No Hotels for the city entered!Please enter the correct city.";
+
         modalBg.addEventListener("click", function () {
           modal.classList.remove("is-active");
         });

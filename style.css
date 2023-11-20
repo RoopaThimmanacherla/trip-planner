@@ -1,7 +1,13 @@
 :root {
+<<<<<<< HEAD
   --primaryColor: #0c686b;
   --secondaryColor: #2cd1b2;
   --tertiaryColor: #df6f19;
+=======
+  --primaryColor: #2cd1b2;
+  --secondaryColor: #0c686b;;
+  --tertiaryColor: #aeefe4;
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
   --buttonColor: #686d70;
   --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   --roundedCorners: 7px;
@@ -21,7 +27,11 @@ body {
   background-image: url("./images/airplane-sunset.jpg");
   background-position: center;
   background-size: cover;
+<<<<<<< HEAD
   background-color: var(--primaryColor);
+=======
+  background-color: var(--secondaryColor);
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 }
 
 header {
@@ -63,17 +73,26 @@ header {
   box-shadow: var(--shadow);
   transition: 0.3s;
   color: white;
+<<<<<<< HEAD
   background-color: var(--secondaryColor);
+=======
+  background-color: var(--primaryColor);
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
   border-radius: var(--roundedCorners);
 }
 
 #hotel-container {
   margin: 1%;
+<<<<<<< HEAD
+=======
+  padding: 2%;
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
   text-align: center;
   font-size: 150%;
   box-shadow: var(--shadow);
   transition: 0.3s;
   color: white;
+<<<<<<< HEAD
   background-color: var(--secondaryColor);
   padding: 2%;
   border-radius: var(--roundedCorners);
@@ -82,13 +101,56 @@ header {
 #airport-results {
   margin: 1%;
   padding: 2%;
+=======
+  background-color: var(--primaryColor);
+  border-radius: var(--roundedCorners);
+}
+
+#airport-results-container {
+  margin: 2%;
+  background-color: var(--secondaryColor);
+  color: white;
+}
+
+#airport-results {
+  margin: 1%;
+  padding: 2%;
+  background-color: var(--tertiaryColor);
+  border-radius: var(--roundedCorners);
+}
+
+#hotel-results-container {
+  margin: 2%;
+  background-color: var(--secondaryColor);
+  color: white;
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 }
 
 #hotel-results {
   margin: 1%;
   padding: 2%;
+<<<<<<< HEAD
 }
 
+=======
+  background-color: var(--tertiaryColor);
+  border-radius: var(--roundedCorners);
+}
+
+ul li {
+  background: white;
+  color: black;
+  list-style-position: inside;
+}
+
+ol li {
+  background-color: white;
+  color: black;
+  list-style-position: inside;
+}
+
+
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 .button {
   margin: 2%;
 }
@@ -135,6 +197,7 @@ header {
   #search-boxes {
     width: 45%;
   }
+<<<<<<< HEAD
 }
 
 @media screen and (max-width: 992px) {
@@ -160,3 +223,30 @@ header {
     width: 95%;
   }
 }
+=======
+}
+
+@media screen and (max-width: 992px) {
+  #checklist-container {
+    width: 49%;
+  }
+
+  #search-boxes {
+    width: 47%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #input-boxes {
+    flex-direction: column;
+  }
+
+  #checklist-container {
+    width: 95%;
+  }
+
+  #search-boxes {
+    width: 95%;
+  }
+}
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252

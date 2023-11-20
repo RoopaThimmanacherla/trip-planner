@@ -10,6 +10,10 @@ var modalBg = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 var modalMsg = document.getElementById("Modal-Message");
 
+<<<<<<< HEAD
+=======
+//Doesn't display results container if there are no results.
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 function airportListEmpty(event) {
   event.preventDefault();
   var airportListEmpty = document.getElementById("airport-results");
@@ -17,11 +21,21 @@ function airportListEmpty(event) {
   checkAirports();
 }
 
+<<<<<<< HEAD
+=======
+//Get list of airports and display in results section.
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 function checkAirports() {
   var destination = document.getElementById("destination-airport").value;
   console.log(destination);
   if (!destination) {
     console.log("Please enter the destination");
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the City !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+      return;
+    });
     return;
   }
 
@@ -38,6 +52,7 @@ function checkAirports() {
     })
     .then(function (airport) {
       console.log(airport);
+<<<<<<< HEAD
       var names = []; //////////////////
       for (var i = 0; i < airport.length; i++) {   
         names.push(airport[i].name)
@@ -46,6 +61,8 @@ function checkAirports() {
         localStorage.setItem('portName', JSON.stringify(names));
         localStorage.getItem('portName');
         //////////////////works but cant display inner html
+=======
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
       document
         .getElementById("airport-results-container")
         .classList.add("show");
@@ -61,11 +78,18 @@ function checkAirports() {
           modal.classList.remove("is-active");
         });
       }
+<<<<<<< HEAD
       
       for (var i = 0; i < airport.length; i++) {
         if (airport[i].name.includes("Airport")) {
           airportList.push(airport[i]);
           
+=======
+      for (var i = 0; i < airport.length; i++) {
+        if (airport[i].name.includes("Airport")) {
+          airportList.push(airport[i]);
+          console.log(airportList);
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
         }
       }
       for (var j = 0; j < airportList.length; j++) {
@@ -74,19 +98,37 @@ function checkAirports() {
           '<li style= "margin-top:10px;text-align: center">'
         );
         airportListItem.text(airportList[j].name);
+<<<<<<< HEAD
+=======
+        $("#airport-results").css("list-style", "decimal");
+
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
         $("#airport-results").append(airportListItem);
       }
       airportList = [];
     });
 }
 
+<<<<<<< HEAD
+=======
+//Get the destination id for the entered city
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 function destId() {
   var hotelInTheCity = document.getElementById("destination-hotel").value;
   console.log(hotelInTheCity);
 
   if (!hotelInTheCity) {
     console.log("please enter the city to search hotel");
+<<<<<<< HEAD
     return;
+=======
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the City !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+      return;
+    });
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
   }
   var destIdurl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination?query=" +
@@ -104,15 +146,23 @@ function destId() {
       return response.json();
     })
     .then(function (result) {
+<<<<<<< HEAD
       console.log(result)
 
+=======
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
       if (result.data.length === 0) {
         document
           .getElementById("hotel-results-container")
           .classList.remove("show");
         modal.classList.add("is-active");
         modalMsg.innerHTML =
+<<<<<<< HEAD
           "No Hotels for the city entered!Please enter the correct city";
+=======
+          "No Hotels for the city entered!Please enter the correct city.";
+
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
         modalBg.addEventListener("click", function () {
           modal.classList.remove("is-active");
         });
@@ -124,6 +174,11 @@ function destId() {
     });
 }
 
+<<<<<<< HEAD
+=======
+//Doesn't display results container if there are no results.
+
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 function hotelsListEmpty(event) {
   event.preventDefault();
 
@@ -134,12 +189,33 @@ function hotelsListEmpty(event) {
   destId();
 }
 
+<<<<<<< HEAD
+=======
+//Get list of airports and display in results section.
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
 function checkHotels() {
   arrivalDate = document.getElementById("from").value;
   console.log(arrivalDate);
   departureDate = document.getElementById("to").value;
   console.log(departureDate);
 
+<<<<<<< HEAD
+=======
+  if (arrivalDate == "") {
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the arrival date !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+  } else if (departureDate == "") {
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the departure date !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+  }
+
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
   var hotelsUrl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels?dest_id=" +
     destIdResult +
@@ -161,6 +237,7 @@ function checkHotels() {
     })
     .then(function (result) {
       console.log(result);
+<<<<<<< HEAD
       var myHotel = []; ////////////////////
       for (var i = 0; i < result.length; i++) {   
         myHotel.push(result[i].name)
@@ -177,6 +254,17 @@ function checkHotels() {
           '<li style="list-style-type: none;margin-top:10px;text-align: center">'
         );
         hotelListItem.text(result.data.hotels[i].property.name);
+=======
+      for (var i = 0; i < 5; i++) {
+        hotelName = result.data.hotels[i].property.name;
+        console.log(hotelName);
+        var hotelListItem = $(
+          '<li style="margin-top:10px;text-align: center">'
+        );
+        hotelListItem.text(result.data.hotels[i].property.name);
+        $("#hotel-results").css("list-style", "decimal");
+
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
         $("#hotel-results").append(hotelListItem);
       }
     });
@@ -220,8 +308,13 @@ $(function () {
 });
 
 // Create checklist item from user input
+<<<<<<< HEAD
 function renderChecklist() {
   
+=======
+
+function renderChecklist() {
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
   var li = document.createElement("li");
   var inputValue = document.getElementById("checklist-input").value;
   var task = document.createTextNode(inputValue);
@@ -246,6 +339,7 @@ function renderChecklist() {
   label.class = "checkbox";
   label.htmlFor = "checkbox";
 
+<<<<<<< HEAD
   function saveLocalTask(task) {
     localStorage.setItem('task', task);
   }
@@ -258,12 +352,15 @@ function renderChecklist() {
     button.textContent = 'clear-button';
 });*/
 
+=======
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252
   li.prepend(checkbox, " ");
   li.prepend(label);
 }
 
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
+<<<<<<< HEAD
 
 // Fetch the API data and store it in local storage
 //var destination = document.getElementById("destination-airport").value;
@@ -347,3 +444,5 @@ function clearSearchHistory() {
 
 // Call the displaySearchHistory function on page load to show search history
 document.addEventListener('DOMContentLoaded', displaySearchHistory); */
+=======
+>>>>>>> 398df89a21c4fe069b5710e19b2d86bb80427252

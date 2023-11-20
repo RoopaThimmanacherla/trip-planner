@@ -101,7 +101,7 @@ function destId() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "505effbf24msh417b1aeaeb14b0ap1a3803jsne7b48bea444e",
+      "X-RapidAPI-Key": "c45464071fmshb95bbff564ddbb1p13b011jsn89a4d012712a",
       "X-RapidAPI-Host": "booking-com15.p.rapidapi.com",
     },
   };
@@ -174,7 +174,7 @@ function checkHotels() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "505effbf24msh417b1aeaeb14b0ap1a3803jsne7b48bea444e",
+      "X-RapidAPI-Key": "c45464071fmshb95bbff564ddbb1p13b011jsn89a4d012712a",
       "X-RapidAPI-Host": "booking-com15.p.rapidapi.com",
     },
   };

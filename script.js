@@ -237,6 +237,17 @@ $(function () {
 
 // Create checklist item from user input
 
+var addButton = document.getElementById("add-button");
+var clearButton = document.getElementById("clear-button")
+
+var tasks =[];
+
+addButton.addEventListener("click", renderChecklist);
+addButton.addEventListener("click", saveValue);
+clearButton.addEventListener("click", clearList);
+
+var tasks = [];
+
 function renderChecklist() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("checklist-input").value;
@@ -248,23 +259,46 @@ function renderChecklist() {
     document.getElementById("checklist").appendChild(li);
   }
   document.getElementById("checklist-input").value = "";
-
   var span = document.createElement("SPAN");
   li.appendChild(span);
-
+  
   // Create checkbox element for new list items
-
   var checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = "checkbox";
-
   var label = document.createElement("label");
   label.class = "checkbox";
   label.htmlFor = "checkbox";
-
   li.prepend(checkbox, " ");
   li.prepend(label);
+  
+  tasks.push(inputValue); 
+
+  console.log(tasks);
+  
 }
+function clearList() {
+  inputValue.value = "";
+}
+
+function saveValue() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function init() {
+  var storedTasks = JSON.parse(localStorage.getItem("tasks"));
+
+  if (storedTasks !== null) {
+    tasks = storedTasks;
+  }
+  
+for (var i =0; i < storedTasks.length; i++) {
+  renderChecklist();
+}
+
+}
+
+init()
 
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);

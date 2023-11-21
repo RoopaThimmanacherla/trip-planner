@@ -252,6 +252,17 @@ $(function () {
 
 // Create checklist item from user input
 
+var addButton = document.getElementById("add-button");
+var clearButton = document.getElementById("clear-button")
+
+var tasks =[];
+
+addButton.addEventListener("click", renderChecklist);
+addButton.addEventListener("click", saveValue);
+clearButton.addEventListener("click", clearList);
+
+var tasks = [];
+
 function renderChecklist() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("checklist-input").value;
@@ -263,23 +274,46 @@ function renderChecklist() {
     document.getElementById("checklist").appendChild(li);
   }
   document.getElementById("checklist-input").value = "";
-
   var span = document.createElement("SPAN");
   li.appendChild(span);
-
+  
   // Create checkbox element for new list items
-
   var checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = "checkbox";
-
   var label = document.createElement("label");
   label.class = "checkbox";
   label.htmlFor = "checkbox";
-
   li.prepend(checkbox, " ");
   li.prepend(label);
+  
+  tasks.push(inputValue); 
+
+  console.log(tasks);
+  
 }
+function clearList() {
+  inputValue.value = "";
+}
+
+function saveValue() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function init() {
+  var storedTasks = JSON.parse(localStorage.getItem("tasks"));
+
+  if (storedTasks !== null) {
+    tasks = storedTasks;
+  }
+  
+for (var i =0; i < storedTasks.length; i++) {
+  renderChecklist();
+}
+
+}
+
+init()
 
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
@@ -295,6 +329,7 @@ function displayStoredValue() {
   var storedValue = localStorage.getItem("storedValue");
   document.getElementById("displayValue").innerHTML = storedValue;
 }
+////////////
 
 /*function saveUserInput() {
   // Get the user input from the input field
@@ -330,105 +365,5 @@ function saveCheckboxStatus() {
   localStorage.setItem('checkboxStatus', isChecked);
 }
 
-// Get the list element
-const list = document.getElementById('myList');
-
-// Add event listener to list
-list.addEventListener('keyup', saveListItems);
-
-// Function to save list items in local storage
-function saveListItems() {
-  const items = list.getElementsByTagName('li');
-  const itemList = [];
-
-  for (let i = 0; i < items.length; i++) {
-    itemList.push(items[i].textContent);
-  }
-
-  localStorage.setItem('listItems', JSON.stringify(itemList));
-}*/
-
-
-
-// Fetch the API data and store it in local storage
-//var destination = document.getElementById("destination-airport").value;
-
-/*
-fetch('https://api.api-ninjas.com/v1/airports?city=' + destination, {headers: { "X-Api-Key": "WswAb25ac3vvhIzq6bTAVg==AkiaAP2lWNnbRet7" }})
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    console.log(data.names);
-    localStorage.setItem('airportNames', JSON.stringify(data.names));
-
-    displayAirportNames();
-  })
-  .catch(error => console.error(error));*/
-
-// Function to display the airport names from local storage
-/*function displayAirportNames() {
-  var airportList = document.getElementById("airportList");
-  var airportNames = JSON.parse(localStorage.getItem('airportNames'));
-
-  if (airportNames && airportNames.length > 0) {
-    airportList.innerHTML = '';
-    for (var i = 0; i < 6; i++) {
-      var listItem = document.createElement("li");
-      listItem.textContent = airportNames[i];
-      airportList.appendChild(listItem);
-    }
-  } else {
-    airportList.innerHTML = 'No airport names available.';
-  }
-}*/
-
-
-/*
-function displayResults() {
-  var li = document.createElement('li');
-  li.textContent = '';
-}*/
-
-/*
-// Make API call to retrieve search results
-function searchAPI() {
-  // Your code to make API call and retrieve search results goes here
-
-  // Example code to store search results in an array
-  const searchResults = ['Result 1', 'Result 2', 'Result 3', 'Result 4', 'Result 5', 'Result 6'];
-
-  // Save search results in local storage
-  localStorage.setItem('searchResults', JSON.stringify(searchResults));
-}
-
-// Function to display search history from local storage
-function displaySearchHistory() {
-  // Get search results from local storage
-  const searchResults = localStorage.getItem('searchResults');
-
-  // Check if search results exist in local storage
-  if (searchResults) {
-    const searchResultsArray = JSON.parse(searchResults);
-
-    // Create list items dynamically for each search result
-    const searchHistoryList = document.getElementById('searchHistory');
-
-    searchResultsArray.forEach(result => {
-      const listItem = document.createElement('li');
-      listItem.textContent = result;
-      searchHistoryList.appendChild(listItem);
-    });
-  }
-}
-
-// Function to clear search history from local storage
-function clearSearchHistory() {
-  // Clear search results from local storage
-  localStorage.removeItem('searchResults');
-
-  // Clear search history list in HTML
-  document.getElementById('searchHistory').innerHTML = '';
-}
-
-// Call the displaySearchHistory function on page load to show search history
-document.addEventListener('DOMContentLoaded', displaySearchHistory); */
+searchAirportEl.addEventListener("submit", airportListEmpty);
+searchHotelEl.addEventListener("submit", hotelsListEmpty);

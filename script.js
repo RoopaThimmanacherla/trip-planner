@@ -10,6 +10,7 @@ var modalBg = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 var modalMsg = document.getElementById("Modal-Message");
 
+//Doesn't display results container if there are no results.
 function airportListEmpty(event) {
   event.preventDefault();
   var airportListEmpty = document.getElementById("airport-results");
@@ -17,11 +18,18 @@ function airportListEmpty(event) {
   checkAirports();
 }
 
+//Get list of airports and display in results section.
 function checkAirports() {
   var destination = document.getElementById("destination-airport").value;
   console.log(destination);
   if (!destination) {
     console.log("Please enter the destination");
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the City !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+      return;
+    });
     return;
   }
 
@@ -45,7 +53,7 @@ function checkAirports() {
 
         localStorage.setItem('portName', JSON.stringify(names));
         localStorage.getItem('portName');
-        //////////////////works but cant display inner html
+        //////////////////works in local storage
       document
         .getElementById("airport-results-container")
         .classList.add("show");
@@ -61,11 +69,10 @@ function checkAirports() {
           modal.classList.remove("is-active");
         });
       }
-      
       for (var i = 0; i < airport.length; i++) {
         if (airport[i].name.includes("Airport")) {
           airportList.push(airport[i]);
-          
+          console.log(airportList);
         }
       }
       for (var j = 0; j < airportList.length; j++) {
@@ -74,19 +81,27 @@ function checkAirports() {
           '<li style= "margin-top:10px;text-align: center">'
         );
         airportListItem.text(airportList[j].name);
+        $("#airport-results").css("list-style", "decimal");
+
         $("#airport-results").append(airportListItem);
       }
       airportList = [];
     });
 }
 
+//Get the destination id for the entered city
 function destId() {
   var hotelInTheCity = document.getElementById("destination-hotel").value;
   console.log(hotelInTheCity);
 
   if (!hotelInTheCity) {
     console.log("please enter the city to search hotel");
-    return;
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the City !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+      return;
+    });
   }
   var destIdurl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination?query=" +
@@ -94,7 +109,7 @@ function destId() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "505effbf24msh417b1aeaeb14b0ap1a3803jsne7b48bea444e",
+      "X-RapidAPI-Key": "c45464071fmshb95bbff564ddbb1p13b011jsn89a4d012712a",
       "X-RapidAPI-Host": "booking-com15.p.rapidapi.com",
     },
   };
@@ -104,15 +119,14 @@ function destId() {
       return response.json();
     })
     .then(function (result) {
-      console.log(result)
-
       if (result.data.length === 0) {
         document
           .getElementById("hotel-results-container")
           .classList.remove("show");
         modal.classList.add("is-active");
         modalMsg.innerHTML =
-          "No Hotels for the city entered!Please enter the correct city";
+          "No Hotels for the city entered!Please enter the correct city.";
+
         modalBg.addEventListener("click", function () {
           modal.classList.remove("is-active");
         });
@@ -124,6 +138,8 @@ function destId() {
     });
 }
 
+//Doesn't display results container if there are no results.
+
 function hotelsListEmpty(event) {
   event.preventDefault();
 
@@ -134,11 +150,26 @@ function hotelsListEmpty(event) {
   destId();
 }
 
+//Get list of airports and display in results section.
 function checkHotels() {
   arrivalDate = document.getElementById("from").value;
   console.log(arrivalDate);
   departureDate = document.getElementById("to").value;
   console.log(departureDate);
+
+  if (arrivalDate == "") {
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the arrival date !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+  } else if (departureDate == "") {
+    modal.classList.add("is-active");
+    modalMsg.innerHTML = "Please enter the departure date !";
+    modalBg.addEventListener("click", function () {
+      modal.classList.remove("is-active");
+    });
+  }
 
   var hotelsUrl =
     "https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotels?dest_id=" +
@@ -151,7 +182,7 @@ function checkHotels() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "505effbf24msh417b1aeaeb14b0ap1a3803jsne7b48bea444e",
+      "X-RapidAPI-Key": "c45464071fmshb95bbff564ddbb1p13b011jsn89a4d012712a",
       "X-RapidAPI-Host": "booking-com15.p.rapidapi.com",
     },
   };
@@ -167,16 +198,16 @@ function checkHotels() {
         }
 
         localStorage.setItem('hotName', JSON.stringify(myHotel));
-        localStorage.getItem('hotName'); //////////////////////
-
+        localStorage.getItem('hotName'); ////////////////////// stores only empty array in local storage not list names of hotels might be api
       for (var i = 0; i < 5; i++) {
         hotelName = result.data.hotels[i].property.name;
         console.log(hotelName);
-        
         var hotelListItem = $(
-          '<li style="list-style-type: none;margin-top:10px;text-align: center">'
+          '<li style="margin-top:10px;text-align: center">'
         );
         hotelListItem.text(result.data.hotels[i].property.name);
+        $("#hotel-results").css("list-style", "decimal");
+
         $("#hotel-results").append(hotelListItem);
       }
     });
@@ -220,8 +251,8 @@ $(function () {
 });
 
 // Create checklist item from user input
+
 function renderChecklist() {
-  
   var li = document.createElement("li");
   var inputValue = document.getElementById("checklist-input").value;
   var task = document.createTextNode(inputValue);
@@ -245,12 +276,6 @@ function renderChecklist() {
   var label = document.createElement("label");
   label.class = "checkbox";
   label.htmlFor = "checkbox";
-/*
-  var clearButton = document.getElementById('clear-button');
-
-  clearButton.addEventListener('click', function() {
-    button.textContent = 'clear-button';
-});*/
 
   li.prepend(checkbox, " ");
   li.prepend(label);
@@ -258,6 +283,72 @@ function renderChecklist() {
 
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
+
+/////attempt at saving local storage with task add button
+function saveValue() {
+  var inputValue = document.getElementById("userInput").value;
+  localStorage.setItem("storedValue", inputValue);
+  displayStoredValue();
+}
+
+function displayStoredValue() {
+  var storedValue = localStorage.getItem("storedValue");
+  document.getElementById("displayValue").innerHTML = storedValue;
+}
+
+/*function saveUserInput() {
+  // Get the user input from the input field
+  var userInput = document.getElementById("userInput").value;
+
+  // Save the user input to local storage
+  localStorage.setItem("userInput", userInput);
+
+}
+
+// Retrieve the saved user input from local storage
+var savedUserInput = localStorage.getItem("userInput");
+
+
+
+/*
+  var clearButton = document.getElementById('clear-button');
+
+  clearButton.addEventListener('click', function() {
+    button.textContent = 'clear-button';
+});*/
+
+/*
+// Get the checkbox element
+const checkbox = document.getElementById('checkbox');
+
+// Add event listener to checkbox
+checkbox.addEventListener('change', saveCheckboxStatus);
+
+// Function to save checkbox status in local storage
+function saveCheckboxStatus() {
+  const isChecked = checkbox.checked;
+  localStorage.setItem('checkboxStatus', isChecked);
+}
+
+// Get the list element
+const list = document.getElementById('myList');
+
+// Add event listener to list
+list.addEventListener('keyup', saveListItems);
+
+// Function to save list items in local storage
+function saveListItems() {
+  const items = list.getElementsByTagName('li');
+  const itemList = [];
+
+  for (let i = 0; i < items.length; i++) {
+    itemList.push(items[i].textContent);
+  }
+
+  localStorage.setItem('listItems', JSON.stringify(itemList));
+}*/
+
+
 
 // Fetch the API data and store it in local storage
 //var destination = document.getElementById("destination-airport").value;

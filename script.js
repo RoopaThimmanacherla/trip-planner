@@ -261,9 +261,8 @@ addButton.addEventListener("click", renderChecklist);
 addButton.addEventListener("click", saveValue);
 clearButton.addEventListener("click", clearList);
 
-var tasks = [];
-
 function renderChecklist() {
+
   var li = document.createElement("li");
   var inputValue = document.getElementById("checklist-input").value;
   var task = document.createTextNode(inputValue);
@@ -281,12 +280,8 @@ function renderChecklist() {
   var checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = "checkbox";
-  var label = document.createElement("label");
-  label.class = "checkbox";
-  label.htmlFor = "checkbox";
   li.prepend(checkbox, " ");
-  li.prepend(label);
-  
+
   tasks.push(inputValue); 
 
   console.log(tasks);
@@ -299,15 +294,15 @@ function clearList() {
 function saveValue() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
+  
 function init() {
   var storedTasks = JSON.parse(localStorage.getItem("tasks"));
-
+console.log(storedTasks)
   if (storedTasks !== null) {
     tasks = storedTasks;
   }
   
-for (var i =0; i < storedTasks.length; i++) {
+for (var i =0; i < tasks.length; i++) {
   renderChecklist();
 }
 
@@ -318,52 +313,16 @@ init()
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
 
-/////attempt at saving local storage with task add button
-function saveValue() {
-  var inputValue = document.getElementById("userInput").value;
-  localStorage.setItem("storedValue", inputValue);
-  displayStoredValue();
-}
-
-function displayStoredValue() {
-  var storedValue = localStorage.getItem("storedValue");
-  document.getElementById("displayValue").innerHTML = storedValue;
-}
-////////////
-
-/*function saveUserInput() {
-  // Get the user input from the input field
-  var userInput = document.getElementById("userInput").value;
-
-  // Save the user input to local storage
-  localStorage.setItem("userInput", userInput);
-
-}
-
-// Retrieve the saved user input from local storage
-var savedUserInput = localStorage.getItem("userInput");
-
-
-
-/*
-  var clearButton = document.getElementById('clear-button');
-
-  clearButton.addEventListener('click', function() {
-    button.textContent = 'clear-button';
-});*/
-
-/*
 // Get the checkbox element
-const checkbox = document.getElementById('checkbox');
+// const checkbox = document.getElementById('checkbox');
 
 // Add event listener to checkbox
-checkbox.addEventListener('change', saveCheckboxStatus);
+// checkbox.addEventListener('change', saveCheckboxStatus);
 
 // Function to save checkbox status in local storage
-function saveCheckboxStatus() {
-  const isChecked = checkbox.checked;
-  localStorage.setItem('checkboxStatus', isChecked);
-}
+// function saveCheckboxStatus() {
+//  const isChecked = checkbox.checked;
+//  localStorage.setItem('checkboxStatus', isChecked);
+// }
 
-searchAirportEl.addEventListener("submit", airportListEmpty);
-searchHotelEl.addEventListener("submit", hotelsListEmpty);
+

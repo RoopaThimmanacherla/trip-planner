@@ -46,6 +46,14 @@ function checkAirports() {
     })
     .then(function (airport) {
       console.log(airport);
+      var names = []; //////////////////
+      for (var i = 0; i < airport.length; i++) {   
+        names.push(airport[i].name)
+        }
+
+        localStorage.setItem('portName', JSON.stringify(names));
+        localStorage.getItem('portName');
+        //////////////////works in local storage
       document
         .getElementById("airport-results-container")
         .classList.add("show");
@@ -184,6 +192,13 @@ function checkHotels() {
     })
     .then(function (result) {
       console.log(result);
+      var myHotel = []; ////////////////////
+      for (var i = 0; i < result.length; i++) {   
+        myHotel.push(result[i].name)
+        }
+
+        localStorage.setItem('hotName', JSON.stringify(myHotel));
+        localStorage.getItem('hotName'); ////////////////////// stores only empty array in local storage not list names of hotels might be api
       for (var i = 0; i < 5; i++) {
         hotelName = result.data.hotels[i].property.name;
         console.log(hotelName);
@@ -246,8 +261,6 @@ addButton.addEventListener("click", renderChecklist);
 addButton.addEventListener("click", saveValue);
 clearButton.addEventListener("click", clearList);
 
-  var tasks = [];
-
 function renderChecklist() {
 
   var li = document.createElement("li");
@@ -268,7 +281,7 @@ function renderChecklist() {
   checkbox.type = "checkbox";
   checkbox.id = "checkbox";
   li.prepend(checkbox, " ");
-  
+
   tasks.push(inputValue); 
 
   console.log(tasks);
@@ -281,7 +294,7 @@ function clearList() {
 function saveValue() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
+  
 function init() {
   var storedTasks = JSON.parse(localStorage.getItem("tasks"));
 console.log(storedTasks)
@@ -299,3 +312,17 @@ init()
 
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
+
+// Get the checkbox element
+// const checkbox = document.getElementById('checkbox');
+
+// Add event listener to checkbox
+// checkbox.addEventListener('change', saveCheckboxStatus);
+
+// Function to save checkbox status in local storage
+// function saveCheckboxStatus() {
+//  const isChecked = checkbox.checked;
+//  localStorage.setItem('checkboxStatus', isChecked);
+// }
+
+

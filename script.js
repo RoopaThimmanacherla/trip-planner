@@ -246,9 +246,10 @@ addButton.addEventListener("click", renderChecklist);
 addButton.addEventListener("click", saveValue);
 clearButton.addEventListener("click", clearList);
 
-var tasks = [];
+  var tasks = [];
 
 function renderChecklist() {
+
   var li = document.createElement("li");
   var inputValue = document.getElementById("checklist-input").value;
   var task = document.createTextNode(inputValue);
@@ -266,11 +267,7 @@ function renderChecklist() {
   var checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.id = "checkbox";
-  var label = document.createElement("label");
-  label.class = "checkbox";
-  label.htmlFor = "checkbox";
   li.prepend(checkbox, " ");
-  li.prepend(label);
   
   tasks.push(inputValue); 
 
@@ -287,12 +284,12 @@ function saveValue() {
 
 function init() {
   var storedTasks = JSON.parse(localStorage.getItem("tasks"));
-
+console.log(storedTasks)
   if (storedTasks !== null) {
     tasks = storedTasks;
   }
   
-for (var i =0; i < storedTasks.length; i++) {
+for (var i =0; i < tasks.length; i++) {
   renderChecklist();
 }
 

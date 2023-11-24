@@ -1,104 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trip Planner</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trip Planner</title>
-  <link rel="stylesheet" href="./reset.css" />
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
-  <link rel="stylesheet" href="./style.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-</head>
-
-<body>
-  <section class="hero is-primary">
-    <div class="hero-body">
-      <p id="hero-text" class="title">Plan Your Trip</p>
-      <p class="subtitle">Search for flights and hotels</p>
-    </div>
-  </section>
-
-  <!--Modal to diaplay messages-->
-  <div class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content has-background-white modal-box">
-      <p id="Modal-Message"><b> </b></p>
-    </div>
-  </div>
-
-  <main id="input-boxes">
-    <section id="checklist-container">
-      <div id="add-item" class="box">
-        <h2><b>Travel Checklist:</b></h2>
-        <input class="input" type="text" id="checklist-input" placeholder="add task" />
-        <button id="add-button" class="button is-primary is-responsive">
-          Add
-        </button>
-
-      </div>
-
-      <div>
-        <ul id="checklist" class="box">
-          <li>
-            <label class="checkbox">
-              <input type="checkbox" /> Book flight</label>
-          </li>
-          <li>
-            <label class="checkbox">
-              <input type="checkbox" /> Book hotel</label>
-          </li>
-        </ul>
-
-        <button id="clear-button" class="clear-btn button is-responsive is-primary">
-          Clear List
-        </button>
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <p id="hero-text" class="title">Plan Your Trip</p>
+        <p class="subtitle">Search for flights and hotels</p>
       </div>
     </section>
 
-    <section id="search-boxes">
-      <div id="airport-container">
-        <form class="airport-container">
-          <h3>Search Airports</h3>
-          <input class="input city-input" id="destination-airport" type="text" placeholder="Enter a city name" />
-          <button class="search-btn button is-responsive is-light">
-            Search
+    <!--Modal to diaplay messages-->
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content has-background-white modal-box">
+        <p id="Modal-Message"><b></b></p>
+      </div>
+    </div>
+
+    <main id="input-boxes">
+      <section id="checklist-container">
+        <div id="add-item" class="box">
+          <h2><b>Travel Checklist:</b></h2>
+          <input
+            class="input"
+            type="text"
+            id="checklist-input"
+            placeholder="add task"
+          />
+          <span
+            onclick="renderChecklist()"
+            class="addBtn button is-responsive is-primary"
+          >
+            Add
+          </span>
+        </div>
+
+        <div>
+          <ul id="checklist" class="box">
+            <li>
+              <label class="checkbox"
+                ><input type="checkbox" /> Book flight</label
+              >
+            </li>
+            <li>
+              <label class="checkbox"
+                ><input type="checkbox" /> Book hotel</label
+              >
+            </li>
+          </ul>
+          <button class="clear-btn button is-responsive is-primary">
+            Clear List
           </button>
-        </form>
-      </div>
+        </div>
+      </section>
 
-      <div id="airport-results-container" class="airport-results box hide">
-        <h2><b>Airport Results: </b></h2>
-        <ol id="airport-results"></ol>
-      </div>
+      <section id="search-boxes">
+        <div id="airport-container">
+          <form class="airport-container">
+            <h3>Search Airports</h3>
+            <input
+              class="input city-input"
+              id="destination-airport"
+              type="text"
+              placeholder="Enter a city name"
+            />
+            <button class="search-btn button is-responsive is-light">
+              Search
+            </button>
+          </form>
+        </div>
 
-      <div id="hotel-results-container" class="hotel-results box hide">
-        <h2><b>Hotel Results: </b></h2>
-        <ol id="hotel-results"></ol>
-      </div>
+        <div id="airport-results-container" class="airport-results box hide">
+          <h2><b>Airport Results: </b></h2>
+          <ol id="airport-results"></ol>
+        </div>
 
-      <div id="hotel-container">
-        <form class="hotel-container">
-          <h3>Search Hotels</h3>
-          <div>
-            <input class="input city-input" id="destination-hotel" type="text" placeholder="Enter a city name" />
-          </div>
+        <div id="hotel-results-container" class="hotel-results box hide">
+          <h2><b>Hotel Results: </b></h2>
+          <ol id="hotel-results"></ol>
+        </div>
 
-          <div>
-            <label for="from">Arrival Date: </label><input class="input" type="text" id="from" name="from" />
-            <label for="to">Departure Date: </label><input class="input" type="text" id="to" name="to" />
-          </div>
-          <button class="search-btn button is-responsive is-light">
-            Search
-          </button>
-        </form>
-      </div>
-    </section>
-  </main>
+        <div id="hotel-container">
+          <form class="hotel-container">
+            <h3>Search Hotels</h3>
+            <div>
+              <input
+                class="input city-input"
+                id="destination-hotel"
+                type="text"
+                placeholder="Enter a city name"
+              />
+            </div>
 
-  <script src="./script.js"></script>
-</body>
+            <div>
+              <label for="from">Arrival Date: </label
+              ><input class="input" type="text" id="from" name="from" />
+              <label for="to">Departure Date: </label
+              ><input class="input" type="text" id="to" name="to" />
+            </div>
+            <button class="search-btn button is-responsive is-light">
+              Search
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
 
+    <script src="./script.js"></script>
+  </body>
 </html>

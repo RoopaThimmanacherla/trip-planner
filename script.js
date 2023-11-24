@@ -9,6 +9,11 @@ var airportList = [];
 var modalBg = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 var modalMsg = document.getElementById("Modal-Message");
+var taskArr = [];
+var getTaskItems;
+var setTaskItems;
+var inputValue;
+var clearButtnEl = document.querySelector(".clear-btn");
 
 //Doesn't display results container if there are no results.
 function airportListEmpty(event) {
@@ -46,14 +51,6 @@ function checkAirports() {
     })
     .then(function (airport) {
       console.log(airport);
-      var names = []; //////////////////
-      for (var i = 0; i < airport.length; i++) {   
-        names.push(airport[i].name)
-        }
-
-        localStorage.setItem('portName', JSON.stringify(names));
-        localStorage.getItem('portName');
-        //////////////////works in local storage
       document
         .getElementById("airport-results-container")
         .classList.add("show");
@@ -109,7 +106,7 @@ function destId() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "c45464071fmshb95bbff564ddbb1p13b011jsn89a4d012712a",
+      "X-RapidAPI-Key": "505effbf24msh417b1aeaeb14b0ap1a3803jsne7b48bea444e",
       "X-RapidAPI-Host": "booking-com15.p.rapidapi.com",
     },
   };
@@ -182,7 +179,7 @@ function checkHotels() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "c45464071fmshb95bbff564ddbb1p13b011jsn89a4d012712a",
+      "X-RapidAPI-Key": "505effbf24msh417b1aeaeb14b0ap1a3803jsne7b48bea444e",
       "X-RapidAPI-Host": "booking-com15.p.rapidapi.com",
     },
   };
@@ -192,13 +189,6 @@ function checkHotels() {
     })
     .then(function (result) {
       console.log(result);
-      var myHotel = []; ////////////////////
-      for (var i = 0; i < result.length; i++) {   
-        myHotel.push(result[i].name)
-        }
-
-        localStorage.setItem('hotName', JSON.stringify(myHotel));
-        localStorage.getItem('hotName'); ////////////////////// stores only empty array in local storage not list names of hotels might be api
       for (var i = 0; i < 5; i++) {
         hotelName = result.data.hotels[i].property.name;
         console.log(hotelName);
@@ -252,77 +242,88 @@ $(function () {
 
 // Create checklist item from user input
 
-var addButton = document.getElementById("add-button");
-var clearButton = document.getElementById("clear-button")
-
-var tasks =[];
-
-addButton.addEventListener("click", renderChecklist);
-addButton.addEventListener("click", saveValue);
-clearButton.addEventListener("click", clearList);
-
 function renderChecklist() {
+  inputValue = document.getElementById("checklist-input").value;
 
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("checklist-input").value;
-  var task = document.createTextNode(inputValue);
-  li.appendChild(task);
-  if (inputValue === "") {
-    return;
+  setTasksIntoLocalStorage();
+}
+
+function setTasksIntoLocalStorage() {
+  var taskObj;
+  taskArr = JSON.parse(localStorage.getItem("addedTasks"));
+  if (taskArr == null) {
+    taskArr = [];
+    taskObj = {
+      task: inputValue,
+      checked: false,
+    };
+    taskArr.push(taskObj);
+    console.log(taskArr);
+    localStorage.setItem("addedTasks", JSON.stringify(taskArr));
   } else {
-    document.getElementById("checklist").appendChild(li);
+    var taskArrUpperCase = String.prototype.toUpperCase
+      .apply(taskArr)
+      .split(",");
+    var inputValueUpperCase = inputValue.toUpperCase();
+    if (taskArrUpperCase.includes(inputValueUpperCase) === false) {
+      taskObj = {
+        task: inputValue,
+        checked: false,
+      };
+      taskArr.push(taskObj);
+      localStorage.setItem("addedTasks", JSON.stringify(taskArr));
+    }
   }
-  document.getElementById("checklist-input").value = "";
-  var span = document.createElement("SPAN");
-  li.appendChild(span);
-  
-  // Create checkbox element for new list items
-  var checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.id = "checkbox";
-  li.prepend(checkbox, " ");
-
-  tasks.push(inputValue); 
-
-  console.log(tasks);
-  
-}
-function clearList() {
-  inputValue.value = "";
 }
 
-function saveValue() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-  
-function init() {
-  var storedTasks = JSON.parse(localStorage.getItem("tasks"));
-console.log(storedTasks)
-  if (storedTasks !== null) {
-    tasks = storedTasks;
+function getTasksFromLocalStorage() {
+  taskArr = JSON.parse(localStorage.getItem("addedTasks"));
+  console.log(taskArr);
+  for (var i = 0; i < taskArr.length; i++) {
+    if (taskArr) {
+      var li = document.createElement("li");
+      var task = document.createTextNode(taskArr[i].task);
+      if (taskArr[i] === "") {
+        return;
+      } else {
+        document.getElementById("checklist").appendChild(li);
+      }
+      document.getElementById("checklist-input").value = "";
+
+      var span = document.createElement("SPAN");
+      li.appendChild(span);
+
+      // Create checkbox element for new list items
+
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.id = taskArr[i].task;
+      checkbox.checked = taskArr[i].checked;
+      var label = document.createElement("label");
+      label.class = "checkbox";
+      label.htmlFor = taskArr[i].task;
+
+      label.appendChild(task);
+      li.prepend(checkbox, " ");
+      li.appendChild(label);
+
+      label.addEventListener("click", function () {
+        console.log($(this).text());
+        var newTaskArray = JSON.parse(localStorage.getItem("addedTasks"));
+        var updateObj = newTaskArray.find(function (taskEl) {
+          console.log(taskEl);
+          return taskEl.task === $(this).text();
+        });
+        console.log(updateObj);
+      });
+    }
   }
-  
-for (var i =0; i < tasks.length; i++) {
-  renderChecklist();
 }
 
+function clearChecklist() {
+  localStorage.clear();
 }
-
-init()
-
 searchAirportEl.addEventListener("submit", airportListEmpty);
 searchHotelEl.addEventListener("submit", hotelsListEmpty);
-
-// Get the checkbox element
-// const checkbox = document.getElementById('checkbox');
-
-// Add event listener to checkbox
-// checkbox.addEventListener('change', saveCheckboxStatus);
-
-// Function to save checkbox status in local storage
-// function saveCheckboxStatus() {
-//  const isChecked = checkbox.checked;
-//  localStorage.setItem('checkboxStatus', isChecked);
-// }
-
-
+clearButtnEl.addEventListener("click", clearChecklist);
+getTasksFromLocalStorage();
